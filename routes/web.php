@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+});//with login (aktifkan jika perlu)
+// Route::get('/', function () {
+//     return view('dashboard');
+// });//without login (aktifkan jika perlu)
 Route::get('/booking', function () {
     return view('booking.booking');
 });
@@ -23,5 +26,5 @@ Route::get('/booking', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+// 
 require __DIR__.'/auth.php';
