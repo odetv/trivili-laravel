@@ -14,6 +14,11 @@
         <script src="../path/to/flowbite/dist/datepicker.js"></script>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
+        <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
+        <script>
+            var render=createwidgetlokasi("provinsi","kabupaten","kecamatan","kelurahan");
+        </script>
         <script>
         $(document).ready(function(){
             $("#cart").click(function(){

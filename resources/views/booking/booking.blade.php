@@ -8,7 +8,7 @@
                             <h1 class="text-4xl font-bold tracking-tight text-gray-900 hp:text-2xl pb-3">Paket Destinasi
                                 Trivili</h1>
                             <div class="flex items-center">
-                                <div date-rangepicker class="flex justify-center items-center">
+                                <div date-rangepicker class="lg:flex justify-center items-center">
                                     <div class="relative">
                                         <div
                                             class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -74,11 +74,16 @@
                                             id="addAlamat">
                                     </div>
                                     <div class="mt-2">
-                                        <label class="hidden text-base text-gray-600" for="cus_email">Kota</label>
+                                        {{-- <label class="hidden text-base text-gray-600" for="cus_email">Kota</label>
                                         <input
                                             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300"
                                             id="cus_email" placeholder="Kota Domisili" aria-label="Email"
-                                            id="addKota">
+                                            id="provinsi"> --}}
+                                        <select id="provinsi" name="provinsi" class="form-control appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-500 bg-gray-200 bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0
+                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                                              <option selected>-Provinsi-</option>
+                                              <option value="">Bali</option>
+                                          </select>
                                     </div>
                                     <div class="inline-block mt-2 w-1/2 pr-1">
                                         <label class="hidden text-base text-gray-600" for="cus_email">Negara</label>
@@ -263,7 +268,7 @@
                                                     <label class="hidden text-base text-dark"
                                                         for="cus_email">Kota</label>
                                                     <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
-                                                        id="addKota" value="">
+                                                        id="provinsi" value="">
                                                 </div>
                                                 <div class="inline-block mt-2 w-1/2 pr-1">
                                                     <label class="hidden text-base text-dark"
