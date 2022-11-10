@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('welcome');
 });//with login (aktifkan jika perlu)
 // Route::get('/', function () {
@@ -23,7 +23,7 @@ Route::get('/booking', function () {
     return view('booking.booking');
 });
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 // 
