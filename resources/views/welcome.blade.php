@@ -36,7 +36,6 @@
             </div>
             @endif
         @endauth
-            
         </div>
             <!-- Home Section Start -->
             <section id="home" class="pt-32 pb-32 bg-slate-100">

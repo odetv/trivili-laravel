@@ -24,6 +24,15 @@
                 $(".total").text(Number($(".price1").text()));
             });
 
+            $("#btnSumbit").click(function(){
+                $("#addNama").append($(".infoNama").text());
+                $("#addEmail").append($(".infoEmail").text());
+                $("#addAlamat").append($(".infoAlamat").text());
+                $("#addKota").append($(".infoKota").text());
+                $("#addNegara").append($(".infoNegara").text());
+                $("#addPos").append($(".infoPos").text());
+            });
+
             $(".hapus").click(function(){
                 $("#addList").each(function(){
                     $(this).text("");

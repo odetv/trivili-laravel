@@ -22,7 +22,7 @@
                                         </div>
                                         <input name="start" type="text"
                                             class="px-6 py-2.5 bg-gray-50 border border-slate-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 hp:text-sm transition duration 150 ease-in-out"
-                                            placeholder="Select date start">
+                                            placeholder="Check-in">
                                     </div>
                                     <span class="mx-4 text-gray-500">to</span>
                                     <div class="relative">
@@ -38,11 +38,11 @@
                                         </div>
                                         <input name="end" type="text"
                                             class="px-6 py-2.5 bg-gray-50 border border-slate-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 hp:text-sm transition duration 150 ease-in-out"
-                                            placeholder="Select date end">
+                                            placeholder="Check-out">
                                     </div>
                                 </div>
                                 <button type="button"
-                                    class="inline-block mx-4 px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out">Check
+                                    class="inline-block mx-4 px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out">Cek Tiket
                                 </button>
                                 <button type="button"
                                     class="inline-block px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out">Keranjang
@@ -50,7 +50,57 @@
 
                             </div>
                         </div>
+                        <!-- Komponen Informasi Pengguna -->
+                        <div class="justify-center items-center">
+                            <div class="leading-loose mt-2">
+                                <form class="w-full p-14 bg-white rounded shadow-xl">
+                                    <p class="text-dark text-xl font-bold mb-2 uppercase">Input Data Pemesanan</p>
+                                    <div class="">
+                                        <label class="block text-base text-dark" for="cus_email">Nama</label>
+                                        <input class="infoNama w-full px-2 py-2 text-gray-500 bg-gray-200 rounded border-slate-300" id="cus_email"
+                                            placeholder="Nama Lengkap"
+                                            aria-label="Email">
+                                    </div>
+                                    <div class="mt-2">
+                                        <label class="block text-base text-gray-600" for="cus_email">Email</label>
+                                        <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300" id="cus_email"
+                                           placeholder="Email"
+                                            aria-label="Email" id="addEmail">
+                                    </div>
+                                    <div class="mt-2">
+                                        <label class="block text-base text-gray-600" for="cus_email">Alamat</label>
+                                        <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300" id="cus_email"
+                                           placeholder="Alamat Lengkap"
+                                            aria-label="Email" id="addAlamat">
+                                    </div>
+                                    <div class="mt-2">
+                                        <label class="hidden text-base text-gray-600" for="cus_email">Kota</label>
+                                        <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300" id="cus_email"
+                                           placeholder="Kota Domisili"
+                                            aria-label="Email" id="addKota">
+                                    </div>
+                                    <div class="inline-block mt-2 w-1/2 pr-1">
+                                        <label class="hidden text-base text-gray-600" for="cus_email">Negara</label>
+                                        <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300" id="cus_email"
+                                           placeholder="Negara"
+                                            aria-label="Email" id="addNegara">
+                                    </div>
+                                    <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
+                                        <label class="hidden text-base text-gray-600" for="cus_email">Kode Pos</label>
+                                        <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300" id="cus_email"
+                                            placeholder="Kode Pos"
+                                            aria-label="Email" id="addPos">
+                                    </div>
+                                    <button
+                                        class="mt-4 cursor-pointer float-right px-4 py-1 text-base text-white bg-primary rounded-md hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out" type="button" id="btnSumbit">Kirim
+                                    </button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <!-- Komponen -->
                         <div class="flex">
+                            <!-- Komponen Daftar Paket Wisata -->
                             <section class="">
                                 <div class="bg-white rounded-lg p-4 shadow-lg md:flex font-sans pt-8 mt-6 mb-6">
                                     <div class="md:shrink-0">
@@ -175,12 +225,44 @@
                                     </form>
                                 </div>
                             </section>
+                            <!-- Komponen Keranjang Pesanan -->
                             <section class="flex flex-row w-1/2 justify-content-center mt-6">
                                 <div class="pointer-events-auto w-screen max-w-md">
-                                    <div class="flex h-full flex-col ml-6 bg-white rounded-lg shadow-lg">
+                                    <div class="leading-loose flex flex-col ml-6 bg-white rounded-lg shadow-lg">
+                                        <form class="w-full p-5 bg-white rounded shadow-xl">
+                                            <p class="text-dark text-xl font-bold mb-2 uppercase">Data Pemesan</p>
+                                            <div id="">
+                                                <div class="">
+                                                    <label class="block text-base text-dark" for="cus_email">Nama</label>
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded" id="addNama" value="">
+                                                </div>
+                                                <div class="">
+                                                    <label class="block text-base text-dark" for="cus_email">Email</label>
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded">
+                                                </div>
+                                                <div class="">
+                                                    <label class="block text-base text-dark" for="cus_email">Alamat</label>
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded" id="addAlamat" value="">
+                                                </div>
+                                                <div class="mt-2">
+                                                    <label class="hidden text-base text-dark" for="cus_email">Kota</label>
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded" id="addKota" value="">
+                                                </div>
+                                                <div class="inline-block mt-2 w-1/2 pr-1">
+                                                    <label class="hidden text-base text-dark" for="cus_email">Negara</label>
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded" id="addNegara" value="">
+                                                </div>
+                                                <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
+                                                    <label class="hidden text-base text-dark" for="cus_email">Kode Pos</label>
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded" id="addPos" value="">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="flex flex-col ml-6 mt-3 bg-white rounded-lg shadow-lg">
                                         <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                                             <div class="flex items-start justify-between">
-                                                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
+                                                <h2 class="text-dark text-xl font-bold uppercase" id="slide-over-title">
                                                     Keranjang Pesanan</h2>
                                             </div>
 
@@ -215,7 +297,8 @@
                                         </div>
                                         <div class="p-6 text-right">
                                             <button type="button"
-                                                class="hapus font-medium text-indigo-600 hover:text-indigo-500">Hapus Pesanan</button>
+                                                class="hapus font-medium text-indigo-600 hover:text-indigo-500">Hapus
+                                                Pesanan</button>
                                         </div>
                                         <div class="border-t">
                                             <div
@@ -235,8 +318,6 @@
                                                 </button>
                                             </div>
                                         </div>
-
-
                                         <div class="border-gray-200 py-6 px-4 sm:px-6">
                                             <div class="flex justify-between text-base font-medium text-gray-900">
                                                 <p>TOTAL (Rp.)</p>
@@ -252,6 +333,7 @@
                                 </div>
                             </section>
                         </div>
+                        <!-- Komponen Prev or Next -->
                         <div class=" font-sans pt-8 text-center">
                             <a href="/dashboard"
                                 class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-700 hover:text-white">

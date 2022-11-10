@@ -46,7 +46,7 @@
                     <a class="underline text-sm text-gray-600 hover:text-secondary" href="{{ route('password.request') }}">
                         {{ __('Lupa Password?') }}
                     </a>
-                    <a class="underline text-sm text-gray-600 hover:text-secondary px-3" href="{{ route('login') }}">
+                    <a class="underline text-sm text-gray-600 hover:text-secondary px-3" href="{{ route('register') }}">
                         {{ __('Belum memiliki akun?') }}
                     </a>
                 @endif
