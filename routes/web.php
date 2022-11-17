@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingEngine;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,16 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});//with login (aktifkan jika perlu)
-// Route::get('/', function () {
-//     return view('dashboard');
-// });//without login (aktifkan jika perlu)
-Route::get('/booking', function () {
-    return view('booking.booking');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-// 
+
+Route::get('booking',[BookingEngine::class,'index'])->name('booking');
+
 require __DIR__.'/auth.php';

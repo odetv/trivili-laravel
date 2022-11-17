@@ -42,9 +42,11 @@
                                     </div>
                                 </div>
                                 <button type="button"
-                                    class="inline-block mx-4 px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"><a href="#paket-wisata">Cek Tiket</a>                                </button>
+                                    class="inline-block mx-4 px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"><a
+                                        href="#paket-wisata">Cek Tiket</a> </button>
                                 <button type="button"
-                                    class="inline-block px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"><a href="#slide-over-title">Keranjang</a>
+                                    class="inline-block px-6 py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"><a
+                                        href="#slide-over-title">Keranjang</a>
                                 </button>
 
                             </div>
@@ -52,54 +54,50 @@
                         <!-- Komponen Informasi Pengguna -->
                         <div class="justify-center items-center" id="paket-wisata">
                             <div class="leading-loose mt-2">
-                                <form class="w-full p-14 pb-16 bg-white rounded-lg shadow-xl items-center">
+                                <form class="w-full p-14 pb-16 bg-white rounded-lg shadow-xl items-center" method="POST">
                                     <p class="text-dark text-xl font-bold mb-2 uppercase">Input Data Pemesanan</p>
                                     <div class="">
                                         <label class="block text-base text-dark" for="cus_email">Nama</label>
                                         <input
-                                            class="infoNama w-full px-2 py-2 text-gray-500 bg-gray-200 rounded border-slate-300"
-                                            id="cus_email" placeholder="Nama Lengkap" aria-label="Email">
+                                            class="form-control w-full px-2 py-2 text-gray-500 bg-gray-200 rounded border-slate-300"
+                                            id="nama" placeholder="Nama Lengkap" aria-label="Email"
+                                            name="nama">
                                     </div>
                                     <div class="mt-2">
                                         <label class="block text-base text-gray-600" for="cus_email">Email</label>
                                         <input
                                             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300"
-                                            id="cus_email" placeholder="Email" aria-label="Email" id="addEmail">
+                                            id="email" placeholder="Email" aria-label="Email" name="email">
                                     </div>
                                     <div class="mt-2">
                                         <label class="block text-base text-gray-600" for="cus_email">Alamat</label>
                                         <input
                                             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300"
-                                            id="cus_email" placeholder="Alamat Lengkap" aria-label="Email"
-                                            id="addAlamat">
+                                            id="alamat" placeholder="Alamat Lengkap" aria-label="Email"
+                                            name="alamat">
                                     </div>
                                     <div class="mt-2">
-                                        {{-- <label class="hidden text-base text-gray-600" for="cus_email">Kota</label>
+                                        <label class="hidden text-base text-gray-600" for="cus_email">Provinsi</label>
                                         <input
                                             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300"
-                                            id="cus_email" placeholder="Kota Domisili" aria-label="Email"
-                                            id="provinsi"> --}}
-                                        <select id="provinsi" name="provinsi" class="form-control appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-500 bg-gray-200 bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0
-                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                                              <option selected>-Provinsi-</option>
-                                              <option value="">Bali</option>
-                                          </select>
+                                            placeholder="Kota Domisili" aria-label="Email"
+                                            id="provinsi" name="provinsi">
                                     </div>
                                     <div class="inline-block mt-2 w-1/2 pr-1">
                                         <label class="hidden text-base text-gray-600" for="cus_email">Negara</label>
                                         <input
                                             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300"
-                                            id="cus_email" placeholder="Negara" aria-label="Email" id="addNegara">
+                                            id="negara" placeholder="Negara" aria-label="Email" name="negara">
                                     </div>
                                     <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
                                         <label class="hidden text-base text-gray-600" for="cus_email">Kode Pos</label>
                                         <input
                                             class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded border-slate-300"
-                                            id="cus_email" placeholder="Kode Pos" aria-label="Email" id="addPos">
+                                            id="pos" placeholder="Kode Pos" aria-label="Email" id="pos">
                                     </div>
                                     <button
                                         class="mt-4 cursor-pointer float-right px-4 py-1 text-base text-white bg-primary rounded-md hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
-                                        type="button" id="btnSumbit">Kirim
+                                        type="button" name="submit" id="submit">Kirim
                                     </button>
                                 </form>
                             </div>
@@ -251,36 +249,37 @@
                                                     <label class="block text-base text-dark"
                                                         for="cus_email">Nama</label>
                                                     <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
-                                                        id="addNama" value="">
+                                                        id="addNama" readonly value="">
                                                 </div>
                                                 <div class="">
                                                     <label class="block text-base text-dark"
                                                         for="cus_email">Email</label>
-                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded">
+                                                    <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
+                                                        id="addEmail" readonly value="">
                                                 </div>
                                                 <div class="">
                                                     <label class="block text-base text-dark"
                                                         for="cus_email">Alamat</label>
                                                     <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
-                                                        id="addAlamat" value="">
+                                                        id="addAlamat" readonly value="">
                                                 </div>
-                                                <div class="mt-2">
-                                                    <label class="hidden text-base text-dark"
-                                                        for="cus_email">Kota</label>
+                                                <div class="">
+                                                    <label class="text-base text-dark"
+                                                        for="cus_email">Kota Domisili</label>
                                                     <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
-                                                        id="provinsi" value="">
+                                                        id="addProvinsi" readonly value="">
                                                 </div>
-                                                <div class="inline-block mt-2 w-1/2 pr-1">
-                                                    <label class="hidden text-base text-dark"
+                                                <div class="inline-block w-1/2 pr-1">
+                                                    <label class="text-base text-dark"
                                                         for="cus_email">Negara</label>
                                                     <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
-                                                        id="addNegara" value="">
+                                                        id="addNegara" readonly value="">
                                                 </div>
-                                                <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
-                                                    <label class="hidden text-base text-dark" for="cus_email">Kode
+                                                <div class="inline-block -mx-1 pl-1 w-1/2">
+                                                    <label class="text-base text-dark" for="cus_email">Kode
                                                         Pos</label>
                                                     <input class="w-full px-2 py-2 text-gray-500 bg-gray-200 rounded"
-                                                        id="addPos" value="">
+                                                        id="addPos" readonly value="">
                                                 </div>
                                             </div>
                                         </form>
@@ -331,7 +330,7 @@
                                             <div
                                                 class="w-96 h-13 flex items-center justify-center pl-3 bg-white border rounded-lg mt-4 mb-2 mx-auto">
                                                 <input type="coupon" name="code" id="coupon"
-                                                    placeholder="Kode Promo"
+                                                    value="{{ $hasil }}" placeholder="Kode Promo"
                                                     class="w-full bg-white outline-none appearance-none focus:outline-none active:outline-none" />
                                                 <button type="submit"
                                                     class="text-sm flex items-center px-3 py-1 text-white bg-gray-800 rounded-lg outline-none md:px-4 hover:bg-gray-700 focus:outline-none active:outline-none">

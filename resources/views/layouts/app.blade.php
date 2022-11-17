@@ -29,13 +29,29 @@
                 $(".total").text(Number($(".price1").text()));
             });
 
-            $("#btnSumbit").click(function(){
-                $("#addNama").append($(".infoNama").text());
-                $("#addEmail").append($(".infoEmail").text());
-                $("#addAlamat").append($(".infoAlamat").text());
-                $("#addKota").append($(".infoKota").text());
-                $("#addNegara").append($(".infoNegara").text());
-                $("#addPos").append($(".infoPos").text());
+            $("#nama").keyup(function(){
+                var a = String($("#nama").val());
+                $("#addNama").val(a);
+            });
+            $("#email").keyup(function(){
+                var a = String($("#email").val());
+                $("#addEmail").val(a);
+            });
+            $("#alamat").keyup(function(){
+                var a = String($("#alamat").val());
+                $("#addAlamat").val(a);
+            });
+            $("#provinsi").keyup(function(){
+                var a = String($("#provinsi").val());
+                $("#addProvinsi").val(a);
+            });
+            $("#negara").keyup(function(){
+                var a = String($("#negara").val());
+                $("#addNegara").val(a);
+            });
+            $("#pos").keyup(function(){
+                var a = String($("#pos").val());
+                $("#addPos").val(a);
             });
 
             $(".hapus").click(function(){

@@ -130,6 +130,10 @@
                                         class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Contact</a>
                                 </li>
                                 <li>
+                                    <a href="/booking"
+                                        class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Pesanan</a>
+                                </li>
+                                <li>
                                     <a href="#about"
                                         class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">About</a>
                                 </li>
