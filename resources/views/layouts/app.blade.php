@@ -18,50 +18,45 @@
         <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
         <script>
             var render=createwidgetlokasi("provinsi","kabupaten","kecamatan","kelurahan");
+            $(document).ready(function(){
+                $("#cart").click(function(){
+                    $("#addList").append($(".item1").text());
+                    $("#addList").append("Rp. ");
+                    $("#addList").append($(".price1").text());
+                    $("#addList").append('<li><a href="#"></a></li>');
+                    $(".total").text(Number($(".price1").text()));
+                });
+                $("#nama").keyup(function(){
+                    var a = String($("#nama").val());
+                    $("#addNama").val(a);
+                });
+                $("#email").keyup(function(){
+                    var a = String($("#email").val());
+                    $("#addEmail").val(a);
+                });
+                $("#alamat").keyup(function(){
+                    var a = String($("#alamat").val());
+                    $("#addAlamat").val(a);
+                });
+                $("#provinsi").keyup(function(){
+                    var a = String($("#provinsi").val());
+                    $("#addProvinsi").val(a);
+                });
+                $("#negara").keyup(function(){
+                    var a = String($("#negara").val());
+                    $("#addNegara").val(a);
+                });
+                $("#pos").keyup(function(){
+                    var a = String($("#pos").val());
+                    $("#addPos").val(a);
+                });
+                $(".hapus").click(function(){
+                    $("#addList").each(function(){
+                        $(this).text("");
+                    });  
+                });
+            });
         </script>
-        <script>
-        $(document).ready(function(){
-            $("#cart").click(function(){
-                $("#addList").append($(".item1").text());
-                $("#addList").append("Rp. ");
-                $("#addList").append($(".price1").text());
-                $("#addList").append('<li><a href="#"></a></li>');
-                $(".total").text(Number($(".price1").text()));
-            });
-
-            $("#nama").keyup(function(){
-                var a = String($("#nama").val());
-                $("#addNama").val(a);
-            });
-            $("#email").keyup(function(){
-                var a = String($("#email").val());
-                $("#addEmail").val(a);
-            });
-            $("#alamat").keyup(function(){
-                var a = String($("#alamat").val());
-                $("#addAlamat").val(a);
-            });
-            $("#provinsi").keyup(function(){
-                var a = String($("#provinsi").val());
-                $("#addProvinsi").val(a);
-            });
-            $("#negara").keyup(function(){
-                var a = String($("#negara").val());
-                $("#addNegara").val(a);
-            });
-            $("#pos").keyup(function(){
-                var a = String($("#pos").val());
-                $("#addPos").val(a);
-            });
-
-            $(".hapus").click(function(){
-                $("#addList").each(function(){
-                    $(this).text("");
-                });  
-            });
-           
-        });
-</script>
     </head>
     <body>
         @include('layouts.navigation')

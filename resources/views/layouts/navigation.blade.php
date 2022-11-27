@@ -126,7 +126,4 @@
             </nav>
         </div>
     </header>
-
-    <!-- Responsive Navigation Menu -->
-
 </div>

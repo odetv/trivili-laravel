@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BookingEngine;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +22,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('booking',[BookingEngine::class,'index'])->name('booking');
+Route::get('booking',[BookingController::class,'index'])->name('booking');
 
 require __DIR__.'/auth.php';
