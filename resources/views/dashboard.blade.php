@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Home Section Start -->
-    <section id="home" class="pt-36 bg-slate-100">
+    <section id="home" class="pt-6 bg-slate-100">
         <div class="container">
             <div class="flex flex-wrap hp:flex-wrap-reverse">
                 <div class="w-full self-center px-4 lg:w-1/2">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-9 lg:right-0">
-                        <img src="https://source.unsplash.com/720x400?travel+bali+landscape" alt="Bali"
+                        <img src="https://media.istockphoto.com/id/953295782/id/foto/pura-ulun-danu-bratan-temple.jpg?s=612x612&w=0&k=20&c=6koyMVq3-4eRzSXhNCLzcBgDDbLz03tKocwuz9TrGvs=" alt="Bali"
                             class="w-100 rounded-tl-full rounded-tr-full shadow-lg w-full mx-auto hover:scale-105 transition duration-300 ease-in-out">
                         <span class="absolute buttom-0 -z-10>
                             <svg width=" 1000" height="1000" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,7 @@
             <div class="flex flex-wrap items-center justify-center">
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://source.unsplash.com/360x200?travel+bali" alt="Travel" class="w-full">
+                        <img src="https://media.istockphoto.com/id/1137010913/id/foto/gerbang-handara-bali.jpg?s=612x612&w=0&k=20&c=XfL49slpIG34IDTv_uD9apwQpk2pV2cLLCj7P3OvIrw=" alt="Travel" class="w-full">
                         <div class="py-8 px-6">
                             <h3><a href="#"
                                     class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
@@ -124,7 +124,7 @@
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://source.unsplash.com/360x200?traveling+bali" alt="Travel" class="w-full">
+                        <img src="https://images.unsplash.com/photo-1511164657592-59a452023479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Travel" class="w-full">
                         <div class="py-8 px-6">
                             <h3><a href="#"
                                     class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
@@ -141,7 +141,7 @@
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://source.unsplash.com/360x200?travel+indonesia+bali" alt="Travel"
+                        <img src="https://media.istockphoto.com/id/1284391017/id/foto/gadis-cantik-menikmati-kebebasan-berayun-di-bali-indonesia.jpg?s=612x612&w=0&k=20&c=qEyQbgB8jv3PuarEqpYOxRzFJahI3NUD6Sd7YtPUVso=" alt="Travel"
                             class="w-full">
                         <div class="py-8 px-6">
                             <h3><a href="#"
@@ -159,7 +159,7 @@
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://source.unsplash.com/360x200?traveling+in+bali" alt="Travel" class="w-full">
+                        <img src="https://media.istockphoto.com/id/1257356856/id/foto/gadis-bali-tampil-gaun-tradisional-di-bali.jpg?s=612x612&w=0&k=20&c=RTCrCjy7ai3f2ksi4dTtw70CJjf9gJkAJSV5cELS6_0=" alt="Travel" class="w-full">
                         <div class="py-8 px-6">
                             <h3><a href="#"
                                     class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
@@ -176,7 +176,7 @@
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://source.unsplash.com/360x200?bali+indonesia" alt="Travel"
+                        <img src="https://media.istockphoto.com/id/585488420/id/foto/patung-buddha-kuno-dan-stupa-di-candi-borobudur.jpg?s=612x612&w=0&k=20&c=Zfnjxu2rbS0VLsYxZHgtOLIksqGhLg4WN6BUoZ6VDDA=" alt="Travel"
                             class="w-full">
                         <div class="py-8 px-6">
                             <h3><a href="#"

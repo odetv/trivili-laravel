@@ -1,4 +1,4 @@
-<div x-data="{ open: false }" class="bg-white border-b border-gray-100">
+{{-- <div x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <header class="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -83,7 +83,4 @@
             </nav>
         </div>
     </header>
-
-    <!-- Responsive Navigation Menu -->
-
-</div>
+</div> --}}
