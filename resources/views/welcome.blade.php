@@ -25,7 +25,7 @@
             @if (Route::has('login'))
             <div class="absolute right-0 pr-6">
                 @auth
-                {{-- <a href="{{ url('/dashboard') }}" class="text-base text-primary py-2 hover:text-secondary transition duration-300 ease-in-out">Dashboard</a> --}}
+                <a href="{{ url('/dashboard') }}" class="text-base text-primary py-2 hover:text-secondary transition duration-300 ease-in-out">Dashboard</a>
                 @else
                 <a href="{{ route('login') }}" class="text-base text-primary py-2 mx-2 hover:text-secondary transition duration-300 ease-in-out">Log in</a>
 

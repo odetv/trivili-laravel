@@ -95,7 +95,7 @@
                         @foreach ($packages as $key => $item)
                             <div class="bg-white rounded-lg p-4 shadow-lg md:flex font-sans pt-8 mt-6 mb-6">
                                 <div class="md:shrink-0">
-                                    <img src="{{ $item->feature_img }}" alt=""
+                                    <img src="{{ asset('storage/'.$item->feature_img) }}" alt=""
                                         class="h-48 w-full md:h-full md:w-56 inset-0 wfull object-cover rounded-lg hover:scale-105 transition duration 150 ease-in-out"
                                         loading="lazy"/>
                                 </div>
@@ -106,7 +106,7 @@
                                         </h1>
                                         <div
                                             class="price1 w-full flex-none mt-2 order-1 text-3xl fontbold text-violet-600">
-                                            Rp.{{ $item->rates->adult_rate }}
+                                            Rp.{{ $item->package_price }}
                                         </div>
                                         <div class="text-sm font-medium text-slate-400">
                                             Tersedia
@@ -149,7 +149,7 @@
                                         Location : {{ $item->location_name }}
                                     </p>
                                     <p class="text-sm text-slate-500">
-                                        Comunity : {{ $item->comunity->comunity_name }}
+                                        Comunity : {{ $item->comunity_name }}
                                     </p>
                                 </form>
                             </div>
