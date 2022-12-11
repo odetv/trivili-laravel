@@ -72,7 +72,7 @@
                                         <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
                                             {{ $item->package_desc }}
                                         </div>
-                                        <div class="flex space-x-4 mb-5 text-sm font-medium">
+                                        <div class="flex flex-col lg:flex-row md:flex-row mb-5 text-sm font-medium">
                                             <div class="flex-auto flex space-x-2">
                                                 <button
                                                     class="h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg bg-violet-600 text-white hover:bg-primary hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"
@@ -87,7 +87,8 @@
                                                     type="button"><a href="#">Cek Tiket</a>
                                                 </button>
                                             </div>
-                                            <button
+                                            <div class="flex flex-row space-x-4 mt-4 lg:mt-0 md:mt-0">
+                                                <button
                                                 class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50 hover:text-red-500 transition duration 150 ease-in-out"
                                                 type="button" aria-label="Cart" id="cart">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -95,16 +96,17 @@
                                                     <path
                                                         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                                 </svg>
-                                            </button>
-                                            <button
-                                                class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50 hover:text-red-500 transition duration 150 ease-in-out"
-                                                type="button" aria-label="Like">
-                                                <svg width="20" height="20" fill="currentColor"
-                                                    ariahidden="true">
-                                                    <path fill-rule="evenodd" cliprule="evenodd"
-                                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-                                                </svg>
-                                            </button>
+                                                </button>
+                                                <button
+                                                    class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50 hover:text-red-500 transition duration 150 ease-in-out"
+                                                    type="button" aria-label="Like">
+                                                    <svg width="20" height="20" fill="currentColor"
+                                                        ariahidden="true">
+                                                        <path fill-rule="evenodd" cliprule="evenodd"
+                                                            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         <p class="text-sm text-slate-500">
                                             Location : {{ $item->location_name }}

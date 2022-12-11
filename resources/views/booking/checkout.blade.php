@@ -3,11 +3,11 @@
         <div class="max-w-7xl mx-auto hp:px-3 lg:px-8">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between border-gray-200 pt-2 pb-6 hp:flex-col">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 hp:text-2xl pb-6">Keranjang Pesanan Paket Trivili</h1>
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 hp:text-2xl pb-6">Pesanan Paket Trivili</h1>
                 </div>
                 <div class="justify-center items-center" id="paket-wisata">
                     <div class="leading-loose mt-2">
-                        <form class="w-full p-14 pb-16 bg-white rounded-lg shadow-xl items-center" method="POST">
+                        <form class="w-full p-7 lg:p-14 pb-16 bg-white rounded-lg shadow-xl items-center" method="POST">
                             <p class="text-dark text-xl font-bold mb-2 uppercase">Input Data Pemesanan</p>
                             <div class="">
                                 <label class="block text-base text-dark" for="cus_email">Nama</label>
@@ -78,8 +78,8 @@
                     <div class="p-6 text-right">
                         <button type="button" class="hapus font-medium text-indigo-600 hover:text-indigo-500">Hapus Pesanan</button>
                     </div>
-                    <div class="border-t">
-                        <div class="w-96 h-13 flex items-center mx-auto lg:mx-6 md:mx-6 pl-3 bg-white border rounded-lg mt-4 mb-2">
+                    <div class="border-t ml-2 mr-2 lg:ml-0 lg:mr-0 md:ml-0 md:mr-0">
+                        <div class="w-full lg:w-96 md:w-96 h-13 flex items-center mx-auto lg:mx-6 md:mx-6 pl-3 bg-white border rounded-lg mt-4 mb-2">
                             <input type="coupon" name="code" id="coupon" value="" placeholder="Kode Promo"
                                 class="w-full bg-white outline-none appearance-none focus:outline-none active:outline-none" />
                             <button type="submit"

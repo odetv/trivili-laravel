@@ -106,7 +106,7 @@
                                 <a href="{{route('paket.comunity',$item->comunity_name)}}"> {{$item->comunity_name}}</a>
                                 {{-- <a href="{{route('paket.comunity',$item->comunity->comunity_id)}}"> {{$item->comunity->comunity_name}}</a> --}}
                             </td>
-                            <td class="px-6 py-4 lg:whitespace-pre-line md:whitespace-pre-line tablet:whitespace-pre-line whitespace-nowrap text-sm text-gray-500">
+                            <td class="px-6 py-4 lg:whitespace-normal md:whitespace-normal tablet:whitespace-normal whitespace-nowrap text-sm text-gray-500">
                                 {{ $item->package_desc }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
