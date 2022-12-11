@@ -8,21 +8,14 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-    public function index(){
-        // $x=12345;
-        // $y=67890;
-        // $hasil=$x*$y;
-        // $nama='-';
-        // $email='-';
-        // $alamat='-';
-        // $provinsi='-';
-        // $negara='-';
-        // $pos='-';
-        // return view('booking.booking', compact('hasil','x','y','nama','email','alamat','provinsi','negara','pos'));
-        // return view('booking.booking');
-        
+    public function package(){      
         $packages=Packages::all();
         $rates=Rates::all();
-        return view('booking.booking', compact('packages','rates'));
+        return view('booking.package', compact('packages','rates'));
+    }
+    public function checkout(){      
+        $packages=Packages::all();
+        $rates=Rates::all();
+        return view('booking.checkout', compact('packages','rates'));
     }
 }

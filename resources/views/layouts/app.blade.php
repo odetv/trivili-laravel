@@ -58,7 +58,7 @@
             });
         </script>
     </head>
-    <body>
+    <body class="bg-slate-100">
         @include('layouts.navigation')
         <main>
             {{ $slot }}

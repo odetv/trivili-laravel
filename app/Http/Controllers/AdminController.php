@@ -21,18 +21,32 @@ class AdminController extends Controller
     {
         $package = Packages::all();
         $title = "Daftar Paket Wisata";
-        // $admin = [(object)[
-        //     'id_penjual' => 1,
-        //     'nama' => 'Kecak Fire Dance',
-        //     'nik' => 'Ubud',
-        //     'alamat' => 'Ubud',
-        //     'comunity' => 'Kecak Fire',
-        //     'harga' => '150.000',
-        //     'foto' => 'https://source.unsplash.com/uJ8LNVCBjFQ/400x400'
-        // ]];
-        // $admin = collect($admin);
+        $package = new Packages;
+        if (isset($_GET['s'])) {
+            $s = $_GET['s'];
+            $package = $package->where('package_name', 'like', "%$s%");
+        }
+
+        if(isset($_GET['package_id'])&&$_GET['package_id']!=''){
+            $package=$package->where('package_id_paket', $_GET['package_id']);
+        }
+   
+        $package = $package->paginate(5);
+
         return view('admin.daftarpaket', compact('title', 'package'));
     }
+
+    public function comunity($id){
+        //memanggil kelompok berdasarkan id_kelompok_tani
+        $comunity=Comunity::where('comunity_id',$id)->first();
+        //menampilkan nama kelompok pada title
+        $title='Komunitas '.$comunity->comunity_name;
+        //memanggil daftar petani berdasarkan kelompok
+        $package=$comunity->package;
+        $comunities=Comunity::all();
+        return view('admin.daftarpaket',compact('title','package','comunities'));
+       }
+       
 
     /**
      * Show the form for creating a new resource.

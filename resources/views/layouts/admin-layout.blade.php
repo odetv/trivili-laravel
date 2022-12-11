@@ -51,91 +51,54 @@
 </head>
 
 <body>
-    <main class="bg-gray-100 font-family-karla flex">
-        <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-            <div class="p-6">
-                <div class="flex flex-row justify-center items-center">
-                    <a href="#">
-                        <x-application-logo class="w-20 h-20 fill-current text-gray-500"/>
-                    </a>
-                    <p class="text-white text-3xl font-bold hover:text-gray300 pl-3">Admin</p>
-                </div>
-
-                <a href="{{ route('admin.create') }}">
-                    <button
-                        class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bllg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                        <i class="fas fa-plus mr-3"></i> New Package
-                    </button>
-                </a>
-            </div>
-            <nav class="text-white text-base font-semibold pt-3">
-                <a href="{{ route('admin.index') }}"
-                    class="flex items-center text-white opacity-75 hover:opacity100 py-4 pl-6 nav-item">
-                    <i class="fas fa-tachometer-alt mr-3"></i>
-                    Dashboard
-                </a>
-                <a href="{{ route('admin.index') }}"
-                    class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item">
-                    <i class="fas fa-sticky-note mr-3"></i>
-                    Home
-                </a>
-            </nav>
-        </aside>
-        <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
-            <!-- Desktop Header -->
-            <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
-                <div class="w-1/2"></div>
-                <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-                    @auth
-                        <div class="pr-5 mt-3">{{ Auth::user()->name }}</div>
-                    @else
-                    @endauth
-                    <button @click="isOpen = !isOpen"
-                        class="realtive z-10 w-12 h-12 rounded-full overflowhidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outlinenone">
-                        <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" class="rounded-full">
-                    </button>
-                    <button x-show="isOpen" @click="isOpen = false"
-                        class="h-full w-full fixed inset0 cursor-default"></button>
-                    <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                        <a href="#" class="block px-4 py-2 account-link hover:text-white"><i class="fas fa-user mr-3"></i>Account</a>
-                        <a href="#" class="block px-4 py-2 account-link hover:text-white"><i class="fas fa-sticky-note mr-3"></i>Support</a>
-                        <a href="#" class="block px-4 py-2 account-link hover:text-white"><i class="fas fa-sign-out-alt mr-3"></i></i>Sign Out</a>
+    <main>
+        <section class="bg-gray-100 flex">
+            <aside class="relative bg-primary h-screen w-64 hidden sm:block shadow-xl">
+                <div class="p-4">
+                    <div class="flex flex-row justify-center items-center">
+                        <p class="text-white text-2xl font-bold">Admin Panel</p>
                     </div>
+    
+                    <a href="{{ route('admin.create') }}">
+                        <button
+                            class="w-full text-primary bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bllg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center transition duration-300 ease-in-out">
+                            <i class="fas fa-plus mr-3 text-primary"></i><p class="text-primary">New Package</p>
+                        </button>
+                    </a>
                 </div>
-            </header>
-            <!-- Mobile Header & Nav -->
-            <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
-                <div class="flex items-center justify-between">
-                    <a href="#" class="text-white text-3xl font-semibold uppercase hover:textgray-300">Admin</a>
-                    <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
-                        <i x-show="!isOpen" class="fas fa-bars"></i>
-                        <i x-show="isOpen" class="fas fa-times"></i>
-                    </button>
-                </div>
-                <!-- Dropdown Nav -->
-                <nav :class="isOpen ? 'flex' : 'hidden'" class="flex flex-col pt-4">
-                    @auth
-                        <div class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl4 nav-item"><i class="fas fa-user mr-3"></i>{{ Auth::user()->name }}</div>
-                    @else
-                    @endauth
-                    <a href="#"
-                        class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl4 nav-item">
-                        <i class="fas fa-tachometer-alt mr-3"></i>
+                <nav class="text-white text-base font-semibold pt-3">
+                    <a href="{{ route('admin.index') }}"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-dashboard" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="12" cy="13" r="2"></circle>
+                            <line x1="13.45" y1="11.55" x2="15.5" y2="9.5"></line>
+                            <path d="M6.4 20a9 9 0 1 1 11.2 0z"></path>
+                         </svg></i>
                         Dashboard
                     </a>
-                    <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl4 nav-item">
-                        <i class="fas fa-sign-out-alt mr-3"></i>
-                        Sign Out
+                    <a href="/package"
+                        class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                         </svg></i>
+                        Client Side
                     </a>
                 </nav>
-            </header>
-            <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-                <main class="w-full flex-grow p-6">
-                    {{ $slot }}
-                </main>
-                {{-- footer --}}
+            </aside>
+            <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+                @include('layouts.admin-navigation')
+                <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+                    <main class="w-full flex-grow p-6">
+                        {{ $slot }}
+                    </main>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 </body>
 
