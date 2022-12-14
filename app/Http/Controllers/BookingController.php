@@ -15,14 +15,27 @@ class BookingController extends Controller
         $comunities=Comunity::all();
         return view('booking.package', compact('packages','rates','comunities'));
     }
+
+    public function detail($package_id){
+
+        $data = Packages::find($package_id);
+        return view('booking.detail', ['package' => $data]);
+        // return Packages::find($package_id);
+        // return Packages::where('package_id', $package_id)->get()->first();
+    }
+
+    public function search(Request $request){
+        $data = Packages::where('package_name', 'like', '%'.$request->input('query').'%')->get();
+        return view('booking.search',['packages' => $data]);
+    }
+
     public function checkout(){      
         $packages=Packages::all();
         $rates=Rates::all();
         return view('booking.checkout', compact('packages','rates'));
     }
 
-    public function addToCart($package_id)
-    {
+    public function addToCart($package_id){
         $package = Packages::findOrFail($package_id);
         $checkout = session()->get('checkout', []);
         if(isset($checkout[$package_id])) {
@@ -40,8 +53,7 @@ class BookingController extends Controller
         return redirect()->back()->with('success', 'Packages add to checkout successfully!');
     }
  
-    public function update(Request $request)
-    {
+    public function update(Request $request){
         if($request->id && $request->quantity){
             $checkout = session()->get('checkout');
             $checkout[$request->id]["quantity"] = $request->quantity;
@@ -50,8 +62,7 @@ class BookingController extends Controller
         }
     }
  
-    public function remove(Request $request)
-    {
+    public function remove(Request $request){
         if($request->id) {
             $checkout = session()->get('checkout');
             if(isset($checkout[$request->id])) {
@@ -62,8 +73,7 @@ class BookingController extends Controller
         }
     }
 
-    public function detailPackage($package_id)
-    {
+    public function detailPackage($package_id){
         $package = Packages::findOrFail($package_id);
         $detail = session()->get('detail', []);
         if(isset($detail[$package_id])) {

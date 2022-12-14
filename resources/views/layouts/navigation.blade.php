@@ -38,7 +38,7 @@
                             <path d="M17 17h-11v-14h-2"></path>
                             <path d="M6 5l14 1l-1 7h-13"></path>
                          </svg>
-                            <span class="text-xs p-0.5 mb-4">{{ count((array) session('checkout')) }}</span>
+                            <span class="text-xs p-0.5 mb-4">({{ count((array) session('checkout')) }})</span>
                     </x-nav-link>
                 </div>
                 <!-- Settings Dropdown -->

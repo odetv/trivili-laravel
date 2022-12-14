@@ -11,7 +11,7 @@
                         bagi wisatawan domestik maupun wisatawan mancanegara yang ingin menghilangkan kepenatan selama
                         melakukan aktivitas kesehariannya. Mulai perjalanan anda bersama kami!</p>
 
-                    <a href="/booking" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-md hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Booking Now</a>
+                    <a href="/package" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-md hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Booking Now</a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-9 lg:right-0">

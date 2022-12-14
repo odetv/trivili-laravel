@@ -44,7 +44,7 @@
                 </div>
                 <form action="/search">
                     <div class="max-w-screen-lg mx-auto flex flex-row justify-end pt-2 text-gray-600">
-                        <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                        <input required autofocus class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                             type="text" name="query" placeholder="Search">
                         <button type="submit" class="ml-3">
                             <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -58,35 +58,35 @@
                         </button>
                     </div>
                 </form>
-
+                <div class="max-w-screen-lg mx-auto flex flex-row justify-start pt-2 text-gray-600">
+                    <h1 class="text-xl font-semibold tracking-tight text-gray-900 hp:text-lg pt-6">Hasil Pencarian :
+                    </h1>
+                </div>
                 <!-- List Package -->
                 <div class="lg:flex justify-center max-w-screen-lg mx-auto">
                     <section class="">
                         @foreach ($packages as $key => $item)
-                            @if (empty($item->package_id))
-                                {{ 'Paket sedang kosong' }}
-                            @else
                                 <div class="bg-white rounded-lg p-4 shadow-lg md:flex font-sans pt-8 mt-6 mb-6">
                                     <div class="md:shrink-0">
-                                        <img src="{{ asset('storage/' . $item->feature_img) }}" alt=""
+                                        <img src="{{ asset('storage/' . $item['feature_img']) }}" alt=""
                                             class="h-48 w-full md:h-full md:w-56 inset-0 wfull object-cover rounded-lg hover:scale-105 transition duration 150 ease-in-out"
                                             loading="lazy" />
                                     </div>
                                     <form class="p-6 w-full">
                                         <div class="flex flex-wrap">
                                             <h1 class="item1 flex-auto font-medium text-slate-900">
-                                                {{ $item->package_name }}
+                                                {{ $item['package_name'] }}
                                             </h1>
                                             <div
                                                 class="price1 w-full flex-none mt-2 order-1 text-3xl fontbold text-violet-600">
-                                                Rp.{{ $item->package_price }}
+                                                Rp. {{ $item['package_price'] }}
                                             </div>
                                             <div class="text-sm font-medium text-slate-400">
                                                 Tersedia
                                             </div>
                                         </div>
                                         <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-                                            {{ $item->package_desc }}
+                                            {{ $item['package_desc'] }}
                                         </div>
                                         <div class="flex flex-col lg:flex-row md:flex-row mb-5 text-sm font-medium">
                                             <div class="flex-auto flex space-x-2 mr-4">
@@ -111,7 +111,7 @@
                                                 </button>
                                             </div>
                                             <div class="flex flex-row space-x-4 mt-4 lg:mt-0 md:mt-0">
-                                                <a href="{{ route('add_to_cart', $item->package_id) }}">
+                                                <a href="{{ route('add_to_cart', $item['package_id']) }}">
                                                     <button
                                                         class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50 hover:text-red-500 transition duration 150 ease-in-out"
                                                         type="button" aria-label="Cart" id="checkout">
@@ -135,14 +135,13 @@
                                             </div>
                                         </div>
                                         <p class="text-sm text-slate-500">
-                                            Location : {{ $item->location_name }}
+                                            Location : {{ $item['location_name'] }}
                                         </p>
                                         <p class="text-sm text-slate-500">
-                                            Comunity : {{ $item->comunity->comunity_name }}
+                                            Comunity : {{ $item->comunity['comunity_name'] }}
                                         </p>
                                     </form>
                                 </div>
-                            @endif
                         @endforeach
                     </section>
                 </div>
