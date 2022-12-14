@@ -38,6 +38,7 @@
                             <path d="M17 17h-11v-14h-2"></path>
                             <path d="M6 5l14 1l-1 7h-13"></path>
                          </svg>
+                            <span class="text-xs p-0.5 mb-4">{{ count((array) session('checkout')) }}</span>
                     </x-nav-link>
                 </div>
                 <!-- Settings Dropdown -->
@@ -123,8 +124,18 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
+                <x-nav-link :href="'/checkout'" class="mr-3 mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="6" cy="19" r="2"></circle>
+                        <circle cx="17" cy="19" r="2"></circle>
+                        <path d="M17 17h-11v-14h-2"></path>
+                        <path d="M6 5l14 1l-1 7h-13"></path>
+                     </svg>
+                        <span class="text-xs p-0.5 mb-4">{{ count((array) session('checkout')) }}</span>
+                </x-nav-link>
                 <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">                    
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -138,10 +149,10 @@
 
         <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">   
-                <nav class="pt-4 pb-4 border-b border-gray-200">
+                <nav class="border-b border-gray-200">
                     <div class="px-4">
                         @auth
-                            <div class="flex flex-row items-center">
+                            <div class="flex flex-row items-center pt-4 pb-4">
                                 <div>
                                     <img src="/img/adminPhoto.jpg" class="rounded-full w-10">
                                 </div>

@@ -28,12 +28,14 @@ class AdminController extends Controller
         }
 
         if(isset($_GET['package_id'])&&$_GET['package_id']!=''){
-            $package=$package->where('package_id_paket', $_GET['package_id']);
+            $package=$package->where('comunity_id', $_GET['package_id']);
         }
    
-        $package = $package->paginate(5);
-
-        return view('admin.daftarpaket', compact('title', 'package'));
+        $package = $package->paginate(100);
+        $packages=Packages::all();
+        $rates=Rates::all();
+        $comunities=Comunity::all();
+        return view('admin.daftarpaket', compact('title', 'package','comunities'));
     }
 
     public function comunity($id){
@@ -56,9 +58,12 @@ class AdminController extends Controller
     public function create()
     {
         $title = "Input Paket Wisata";
-        return view('admin.inputpaket', compact('title'));
+        $packages=Packages::all();
+        $rates=Rates::all();
+        $comunities=Comunity::all();
+        return view('admin.inputpaket', compact('title','packages','rates','comunities'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -77,23 +82,19 @@ class AdminController extends Controller
             'package_desc'=>'required:packages|max:255',
             'package_price'=>'numeric:packages',
             'location_name'=>'required:packages|max:255',
-            'comunity_name'=>'required:packages|max:255',
+            'comunity_id'=>'required:packages|max:255',
             'feature_img'=>'required:packages'
-
         ],$message);
-        // $fileName = time() . $request->file('feature_img')->getClientOriginalName();
-        // $path = $request->file('feature_img')->store('features_img');
-        // $validasi['feature_img'] = $path;
         if($request->hasFile('feature_img')){
             $fileName = time() . $request->file('feature_img')->getClientOriginalName();
             $path = $request->file('feature_img')->storeAs('features_img',$fileName);
             $validasi['feature_img'] = $path;
         }
-
-        $validasi['user_id'] = Auth::id();
+        $validasi['package_id'] = Auth::id();
+        $packages=Packages::all();
+        $rates=Rates::all();
+        $comunities=Comunity::all();
         Packages::create($validasi);
-        // Rates::create($validasi);
-        // Comunity::create($validasi);
         return redirect('admin')->with('success','Data berhasil tersimpan');
     }
 
@@ -117,9 +118,10 @@ class AdminController extends Controller
     public function edit($id)
     {
         $package = Packages::where('package_id', $id)->get()->first();
-        // find($id) //menggunakan find tidak mau alhasil menggunakan sintax manual
         $title = "Edit Paket Wisata";
-        return view('admin.inputpaket', compact('title', 'package'));
+        $comunities=Comunity::all();
+        $comunity = Comunity::where('comunity_id', $id)->get()->first();
+        return view('admin.inputpaket', compact('title', 'package', 'comunities','comunity'));
     }
 
     /**
@@ -141,7 +143,7 @@ class AdminController extends Controller
             'package_desc'=>'required:packages|max:255',
             'package_price'=>'numeric:packages',
             'location_name'=>'required:packages|max:255',
-            'comunity_name'=>'required:packages|max:255'
+            'comunity_id'=>'required:packages|max:255'
 
         ],$message);
         if($request->hasFile('feature_img')){
@@ -152,9 +154,9 @@ class AdminController extends Controller
             Storage::delete($package->feature_img);
         }
         
-        $validasi['user_id'] = Auth::id();
+        // $validasi['package_id'] = Auth::id();
         Packages::where('package_id', $id)->update($validasi);
-        // Packages::create($validasi);
+        $comunities=Comunity::all();
         return redirect('admin')->with('success','Data berhasil di update');
     }
 
@@ -172,8 +174,6 @@ class AdminController extends Controller
             $package = Packages::where('package_id', $id)->get()->first();
             Packages::where('package_id', $id)->delete();
         }
-
-        // Packages::where('package_id', $id)->delete();
         return redirect('admin')->with('success','Data berhasil di hapus');
     }
 }

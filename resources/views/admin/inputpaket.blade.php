@@ -41,13 +41,30 @@
                             </div>
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="company-website" class="block text-sm font-medium text-gray-700">Komunitas</label>
-                                <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" name="comunity_name" value="{{(isset($package))?$package->comunity_name: old('comunity_name') }}"
-                                        class="@error('comunity_name') @enderror block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                        placeholder="Komunitas Wisata">
+                                <select name="comunity_id" value="{{(isset($package))?$package->comunity_id: old('comunity_id') }}"
+                                    class="hidden w-full py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
+                                    <option value="">Pilih Komunitas</option>
+                                    @foreach ($comunities as $key => $item)
+                                        <option>{{ "namaKomunitas" }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="flex flex-row justify-center items-center">
+                                    <select name="comunity_id" value="{{(isset($package))?$package->comunity_name: old('comunity_name') }}"
+                                        class="@error('package_name') @enderror block w-full py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
+                                        <option>Pilih Komunitas</option>
+                                        @foreach ($comunities as $key => $item)
+                                            <option id="namaKomunitas" value="{{ $item->comunity_id }}" >{{ $item->comunity_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="ml-2">
+                                        <button type="submit"
+                                            class="text-center inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                            Tambah
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="text-xs text-red-500">
-                                    @error('comunity_name')
+                                <div class="block text-xs text-red-500">
+                                    @error('package_name')
                                         {{ $message }}
                                     @enderror
                                 </div>
@@ -96,7 +113,7 @@
                                         </svg>
                                     @endif
                                     
-                                    <div class="flex text-sm text-gray-600">
+                                    <div class="flex text-sm justify-center text-gray-600">
                                         <label for="feature_img"
                                             class="@error('feature_img') border-red-500 @enderror relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
                                             <span>Upload a file</span>
@@ -115,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                    <div class="px-4 py-3 text-right sm:px-6">
                         <button type="submit"
                             class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
                     </div>
@@ -123,5 +140,5 @@
             </form>
         </div>
     </div>
-
+    
 </x-admin-layout>

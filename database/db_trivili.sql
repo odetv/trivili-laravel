@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Des 2022 pada 12.47
+-- Waktu pembuatan: 14 Des 2022 pada 07.45
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -64,13 +64,8 @@ CREATE TABLE `comunities` (
 --
 
 INSERT INTO `comunities` (`comunity_id`, `comunity_name`, `village_id`, `contact_name`, `comunity_desc`, `comunity_logo`, `created_at`, `updated_at`) VALUES
-(1, 'Kecak FD Bali', 1, NULL, NULL, NULL, NULL, NULL),
-(2, 'Kecak Tradisional', 2, NULL, NULL, NULL, NULL, NULL),
-(3, 'Singaraja City ku', NULL, NULL, NULL, NULL, '2022-12-05 01:21:44', '2022-12-05 01:21:44'),
-(4, 'Singaraja City', NULL, NULL, NULL, NULL, '2022-12-05 01:25:56', '2022-12-05 01:25:56'),
-(5, 'Singaraja City ku', NULL, NULL, NULL, NULL, '2022-12-07 16:16:41', '2022-12-07 16:16:41'),
-(6, 'Singaraja123', NULL, NULL, NULL, NULL, '2022-12-07 16:18:37', '2022-12-07 16:18:37'),
-(7, 'Singaraja1234', NULL, NULL, NULL, NULL, '2022-12-07 16:20:17', '2022-12-07 16:20:17');
+(1, 'Kecak FD Bali', NULL, NULL, NULL, NULL, '2022-12-14 05:35:30', '2022-12-14 05:35:30'),
+(2, 'Kecak Tradisional', NULL, NULL, NULL, NULL, '2022-12-14 05:35:39', '2022-12-14 05:35:39');
 
 -- --------------------------------------------------------
 
@@ -137,7 +132,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `packages` (
-  `user_id` int(11) NOT NULL,
   `package_id` int(11) NOT NULL,
   `package_code` varchar(10) DEFAULT NULL,
   `package_name` varchar(100) DEFAULT NULL,
@@ -148,7 +142,6 @@ CREATE TABLE `packages` (
   `location_name` varchar(100) DEFAULT NULL,
   `location_id` int(11) DEFAULT NULL,
   `comunity_id` int(11) DEFAULT NULL,
-  `comunity_name` varchar(100) DEFAULT NULL,
   `rate_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -158,11 +151,12 @@ CREATE TABLE `packages` (
 -- Dumping data untuk tabel `packages`
 --
 
-INSERT INTO `packages` (`user_id`, `package_id`, `package_code`, `package_name`, `package_price`, `permalink`, `package_desc`, `feature_img`, `location_name`, `location_id`, `comunity_id`, `comunity_name`, `rate_id`, `created_at`, `updated_at`) VALUES
-(1, 22, NULL, 'Kecak Fire Dance Bali', '145000', NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'features_img/16707316671670248806Kecak2.jpg', 'Tegallalang', NULL, 2, 'Tegallalang Dance', NULL, '2022-12-05 05:57:06', '2022-12-11 01:28:03'),
-(2, 24, NULL, 'Kecak Modern Bali Selatan', '198000', NULL, 'Paket wisata ini hanya sebuah dummy', 'features_img/1670420436IMG-20180824-WA0028.jpg', 'Tanah Lot', NULL, NULL, 'Ngigel Bali', NULL, '2022-12-07 05:40:37', '2022-12-07 19:12:30'),
-(2, 30, NULL, 'PKB Bali', '125000', NULL, 'Paket Pentas Kesenian Bali', 'features_img/16704690751670248821Kecak1.jpg', 'Bali', NULL, NULL, 'Seni Bali', NULL, '2022-12-07 19:11:15', '2022-12-07 19:11:31'),
-(2, 31, NULL, 'Kecak Dance Ubud', '150000', NULL, 'Kecak Dance Ubud Dummy', 'features_img/16706740811670420436IMG-20180824-WA0028.jpg', 'Gianyar', NULL, NULL, 'Ubud Kecakku', NULL, '2022-12-07 19:21:43', '2022-12-10 04:08:01');
+INSERT INTO `packages` (`package_id`, `package_code`, `package_name`, `package_price`, `permalink`, `package_desc`, `feature_img`, `location_name`, `location_id`, `comunity_id`, `rate_id`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Kecak Fire Dance', '150000', NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'features_img/1670999924P1.jpg', 'Ubud', NULL, 1, NULL, '2022-12-13 13:33:58', '2022-12-13 22:38:44'),
+(2, NULL, 'Kecak Dance Tabanan', '125000', NULL, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', 'features_img/1670999942P2.jpg', 'Tabanan', NULL, 2, NULL, '2022-12-13 13:38:33', '2022-12-13 22:39:02'),
+(3, NULL, 'Kecak Baud Bali Utara', '145000', NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.', 'features_img/1670999955P3.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-13 13:42:38', '2022-12-13 22:39:15'),
+(4, NULL, 'Kecak Sidetapa', '130000', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable.', 'features_img/1670999967P4.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-13 13:43:26', '2022-12-13 22:39:27'),
+(5, NULL, 'PKB Bali 2022', '110000', NULL, 'Pesta Kesenian Bali adalah parade atau festival kesenian tahunan yang diprakarsai oleh Pemerintah Provinsi Bali, dalam upaya mendukung program pemerintah dalam hal penggalian, pelestarian, dan pengembangan nilai-nilai seni budaya Bali.', 'features_img/1671000165P5.jpg', 'Bali', NULL, 2, NULL, '2022-12-13 22:42:45', '2022-12-13 22:42:45');
 
 -- --------------------------------------------------------
 
@@ -276,7 +270,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', NULL, '$2y$10$ersDAXTLBNoUsqHZ.ldefO3efteHS7vvjOno0mEX9wVwD7FvaryIm', NULL, NULL, NULL, NULL, '2022-11-03 22:16:03', '2022-12-09 05:46:40'),
-(2, 'I Gede Gelgel Abdiutama', 'abdiutama02@gmail.com', NULL, '$2y$10$0Q1vig9gdqaZMTGjkwwh2euJ4/4Ud/5cHviZJoRDV261w9cBn4Nau', NULL, NULL, NULL, NULL, '2022-11-26 04:19:31', '2022-12-10 05:27:35');
+(3, 'I Gede Gelgel Abdiutama', 'abdiutama02@gmail.com', NULL, '$2y$10$cdHLc1SmWyL.Azi6lpKDC.FknOHZgD6DdGddz1bU.AM7LuI4PJXzi', NULL, NULL, NULL, NULL, '2022-12-13 21:30:40', '2022-12-13 21:30:40');
 
 --
 -- Indexes for dumped tables
@@ -359,7 +353,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `comunities`
 --
 ALTER TABLE `comunities`
-  MODIFY `comunity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `comunity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `disc`
@@ -383,7 +377,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -401,7 +395,7 @@ ALTER TABLE `rates`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

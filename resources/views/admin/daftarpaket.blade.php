@@ -26,10 +26,15 @@
                                     class="block w-full py-2 border border-gray-300 bg-white rounded-l-2xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
                                     <option value="">Pilih Komunitas</option>
                                     <!-- menampilkan list kelompok petani-->
-                                    @foreach ($package as $item)
+                                    {{-- @foreach ($package as $item)
                                         <option value="{{ $item->package_id_paket }}"
                                             {{ isset($_GET['package_id']) && $_GET['package_id'] == $item->package_id_paket ? 'selected' : '' }}>
                                             {{ $item->package_name }}</option>
+                                    @endforeach --}}
+                                    @foreach ($comunities as $key => $item)
+                                        <option value="{{ $item->comunity_id }}"
+                                            {{ isset($_GET['package_id']) && $_GET['package_id'] == $item->comunity_id? 'selected' : '' }}>
+                                            {{ $item->comunity_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -102,9 +107,7 @@
                                 <div class="text-sm text-gray-900">Rp. {{ $item->package_price }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{-- {{ $item->comunity_name }} --}}
-                                <a href="{{route('paket.comunity',$item->comunity_name)}}"> {{$item->comunity_name}}</a>
-                                {{-- <a href="{{route('paket.comunity',$item->comunity->comunity_id)}}"> {{$item->comunity->comunity_name}}</a> --}}
+                                <a href="{{route('paket.comunity',$item->comunity->comunity_name)}}">{{$item->comunity->comunity_name}}</a>
                             </td>
                             <td class="px-6 py-4 lg:whitespace-normal md:whitespace-normal tablet:whitespace-normal whitespace-nowrap text-sm text-gray-500">
                                 {{ $item->package_desc }}
