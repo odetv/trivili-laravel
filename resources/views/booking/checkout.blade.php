@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto hp:px-3 lg:px-8">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between border-gray-200 pt-2 hp:flex-col">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 hp:text-2xl pb-6">Pesanan Paket Trivili
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 hp:text-2xl pb-6">Keranjang Pesanan
                     </h1>
                 </div>
                 <div class="py-2 align-middle sm:px-4 lg:px-4">

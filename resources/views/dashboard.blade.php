@@ -11,7 +11,7 @@
                         bagi wisatawan domestik maupun wisatawan mancanegara yang ingin menghilangkan kepenatan selama
                         melakukan aktivitas kesehariannya. Mulai perjalanan anda bersama kami!</p>
 
-                    <a href="/package" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-md hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Booking Now</a>
+                    <a href="/package" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-lg hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Booking Now</a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-9 lg:right-0">
@@ -31,7 +31,7 @@
     </section>
     <!-- Home Section End -->
 
-    <!-- Pricing Section Start -->
+    {{-- <!-- Pricing Section Start -->
     <section id="pricing" class="pt-36 pb-16 bg-slate-100">
         <div class="container">
             <div class="w-full px-4">
@@ -88,117 +88,54 @@
             </div>
         </div>
     </section>
-    <!-- Pricing Section End -->
+    <!-- Pricing Section End --> --}}
 
-    <!-- Gallery Section Start -->
-    <section id="gallery" class="pt-36 pb-32 bg-slate-200">
+    <!-- Package Section Start -->
+    <section id="package" class="pt-36 pb-32 bg-slate-100">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Gallery</h4>
-                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">Bersama Trivili Menjelajah
-                        Bali</h2>
+                    <h4 class="font-semibold text-lg text-primary mb-2">Paket Wisata</h4>
+                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">
+                        Bersama Trivili Menjelajah Bali</h2>
                     <p class="text-base text-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore blanditiis nisi qui cupiditate,
-                        dolore asperiores voluptate?
+                        Dengan paket wisata kami, Anda akan dapat menjelajahi wisata Bali bersama Trivili.
                     </p>
                 </div>
             </div>
             <div class="flex flex-wrap items-center justify-center">
+                @foreach ($packages as $key => $item)
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://media.istockphoto.com/id/1137010913/id/foto/gerbang-handara-bali.jpg?s=612x612&w=0&k=20&c=XfL49slpIG34IDTv_uD9apwQpk2pV2cLLCj7P3OvIrw=" alt="Travel" class="w-full">
+                        <div class="">
+                            <img src="{{ asset('storage/' . $item->feature_img) }}" alt="Travel" class="object-cover h-48 w-full">
+                        </div>
                         <div class="py-8 px-6">
                             <h3><a href="#"
                                     class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
-                                    Travel in Bali
+                                    {{ $item->package_name }}
                                 </a>
                             </h3>
-                            <p class="text-base mb-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad enim
-                                ea perspiciatis.</p>
-                            <a href="#"
+                            <p class="text-base mb-2 truncate">{{ $item->package_desc }}</p>
+                            <a href="detail/{{ $item['package_id'] }}"
                                 class="font-medium text-sm text-primary transition 0.3s ease-in-out hover:text-secondary">Baca
                                 selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://images.unsplash.com/photo-1511164657592-59a452023479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Travel" class="w-full">
-                        <div class="py-8 px-6">
-                            <h3><a href="#"
-                                    class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
-                                    Bali Punya Cerita
-                                </a>
-                            </h3>
-                            <p class="text-base mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita?
-                            </p>
-                            <a href="#"
-                                class="font-medium text-sm text-primary transition 0.3s ease-in-out hover:text-secondary">Baca
-                                selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://media.istockphoto.com/id/1284391017/id/foto/gadis-cantik-menikmati-kebebasan-berayun-di-bali-indonesia.jpg?s=612x612&w=0&k=20&c=qEyQbgB8jv3PuarEqpYOxRzFJahI3NUD6Sd7YtPUVso=" alt="Travel"
-                            class="w-full">
-                        <div class="py-8 px-6">
-                            <h3><a href="#"
-                                    class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
-                                    Jelajah Baliku
-                                </a>
-                            </h3>
-                            <p class="text-base mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
-                                cumque aspernatur.</p>
-                            <a href="#"
-                                class="font-medium text-sm text-primary transition 0.3s ease-in-out hover:text-secondary">Baca
-                                selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://media.istockphoto.com/id/1257356856/id/foto/gadis-bali-tampil-gaun-tradisional-di-bali.jpg?s=612x612&w=0&k=20&c=RTCrCjy7ai3f2ksi4dTtw70CJjf9gJkAJSV5cELS6_0=" alt="Travel" class="w-full">
-                        <div class="py-8 px-6">
-                            <h3><a href="#"
-                                    class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
-                                    Surga Dunia
-                                </a>
-                            </h3>
-                            <p class="text-base mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                Obcaecati, quaerat! Animi provident accusamus nesciunt voluptatem.</p>
-                            <a href="#"
-                                class="font-medium text-sm text-primary transition 0.3s ease-in-out hover:text-secondary">Baca
-                                selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-4 lg:w-1/2 xl:w-1/3 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://media.istockphoto.com/id/585488420/id/foto/patung-buddha-kuno-dan-stupa-di-candi-borobudur.jpg?s=612x612&w=0&k=20&c=Zfnjxu2rbS0VLsYxZHgtOLIksqGhLg4WN6BUoZ6VDDA=" alt="Travel"
-                            class="w-full">
-                        <div class="py-8 px-6">
-                            <h3><a href="#"
-                                    class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
-                                    Bali Indonesia
-                                </a>
-                            </h3>
-                            <p class="text-base mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste sit
-                                est consectetur quod itaque assumenda molestias!</p>
-                            <a href="#"
-                                class="font-medium text-sm text-primary transition 0.3s ease-in-out hover:text-secondary">Baca
-                                selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+            </div>
+            <div class="mt-5 text-center">
+                <button type="button" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-lg hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">
+                  <a href="/package">Cek Paket Wisata Lainnya</a>
+                </button>
             </div>
         </div>
     </section>
-    <!-- Gallery Section End -->
+    <!-- Package Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32 bg-slate-300">
+    <section id="about" class="pt-36 pb-32 bg-slate-200">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
@@ -206,15 +143,13 @@
                         kami</h4>
                     <h2 class="font-bold text-dark text-2xl mb-3 max-w-md lg:text-3xl">Kenapa Trivii?</h2>
                     <p class="text-base text-dark mb-5 max-w-xl leading-loose">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa natus doloribus sit sequi
-                        adipisci velit fugit.
+                        Jika Anda ingin mengalami keindahan alam dan budaya yang luar biasa, maka paket wisata ke Bali adalah pilihan yang tepat! Dengan paket wisata kami, Anda akan dapat menjelajahi pantai-pantai indah, mengunjungi tempat-tempat bersejarah, serta menikmati kegiatan seperti snorkeling, mendaki gunung, dan banyak lagi.
                     </p>
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
                     <h3 class="font-bold text-dark text-2xl mb-3 lg:text-3xl lg:pt-10">Hubungi kami</h3>
                     <p class="text-base text-dark mb-3 leading-loose">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, voluptate! Consequatur sint
-                        explicabo provident.
+                        Jangan lewatkan kesempatan untuk mengalami keajaiban Bali dengan paket wisata kami. Hubungi kami sekarang untuk membuat reservasi dan rincian lebih lanjut. Kami akan dengan senang hati membantu Anda menyusun paket wisata yang sesuai dengan keinginan dan anggaran Anda. Selamat berlibur!
                     </p>
                     <div class="flex items-center">
                         <!-- Whatsapp -->
@@ -255,15 +190,14 @@
     <!-- About Section End -->
 
     <!-- Partner Section Start -->
-    <section id="partner" class="pt-36 pb-32 bg-slate-200">
+    <section id="partner" class="pt-36 pb-32 bg-slate-300">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2">Partner</h4>
                     <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">Kerjasama</h2>
                     <p class="text-base text-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates odio est assumenda
-                        voluptatibus voluptatem ratione dignissimos.
+                        Anda juga akan dapat menikmati kekayaan kuliner Bali, dengan makanan tradisional yang lezat dan minuman segar. Kami juga menawarkan penginapan yang nyaman dan terbaik, mulai dari villa mewah hingga resort bintang 5.
                     </p>
                 </div>
             </div>
@@ -300,7 +234,7 @@
                     <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">Ingin mendapat info lebih
                         lanjut?</h2>
                     <p class="text-base text-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, dignissimos.
+                        Hubungi kami sekarang untuk membuat reservasi dan rincian lebih lanjut.
                     </p>
                 </div>
             </div>
@@ -377,20 +311,16 @@
                                 class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Home</a>
                         </li>
                         <li>
-                            <a href="#pricing"
-                                class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#gallery"
-                                class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Gallery</a>
+                            <a href="#package"
+                                class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Package</a>
                         </li>
                         <li>
                             <a href="#contact"
                                 class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Contact</a>
                         </li>
                         <li>
-                            <a href="/booking"
-                                class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Pesanan</a>
+                            <a href="/checkout"
+                                class="inline-block text-base transition duration-300 ease-in-out text-slate-300 hover:text-secondary mb-2 sm:text-sm">Keranjang Pesanan</a>
                         </li>
                         <li>
                             <a href="#about"

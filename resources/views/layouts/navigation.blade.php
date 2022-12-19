@@ -15,20 +15,20 @@
                     <x-nav-link :href="'/'">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="'/#pricing'">
+                    <x-nav-link :href="'/#package'">
+                        {{ __('Package') }}
+                    </x-nav-link>
+                    {{-- <x-nav-link :href="'/#pricing'">
                         {{ __('Pricing') }}
-                    </x-nav-link>
-                    <x-nav-link :href="'/#gallery'">
+                    </x-nav-link> --}}
+                    {{-- <x-nav-link :href="'/#gallery'">
                         {{ __('Gallery') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     <x-nav-link :href="'/#contact'">
                         {{ __('Contact') }}
                     </x-nav-link>
                     <x-nav-link :href="'/#about'">
                         {{ __('About') }}
-                    </x-nav-link>
-                    <x-nav-link :href="'/package'">
-                        {{ __('Package') }}
                     </x-nav-link>
                     <x-nav-link :href="'/checkout'">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -132,7 +132,7 @@
                         <path d="M17 17h-11v-14h-2"></path>
                         <path d="M6 5l14 1l-1 7h-13"></path>
                      </svg>
-                        <span class="text-xs p-0.5 mb-4">{{ count((array) session('checkout')) }}</span>
+                        <span class="text-xs p-0.5 mb-4">({{ count((array) session('checkout')) }})</span>
                 </x-nav-link>
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">                    
@@ -174,7 +174,18 @@
                      </svg>
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="'/#pricing'" class="flex">
+                <x-responsive-nav-link :href="'/#package'" class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-package" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
+                        <line x1="12" y1="12" x2="20" y2="7.5"></line>
+                        <line x1="12" y1="12" x2="12" y2="21"></line>
+                        <line x1="12" y1="12" x2="4" y2="7.5"></line>
+                        <line x1="16" y1="5.25" x2="8" y2="9.75"></line>
+                     </svg>
+                    {{ __('Package') }}
+                </x-responsive-nav-link>
+                {{-- <x-responsive-nav-link :href="'/#pricing'" class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <ellipse cx="16" cy="6" rx="5" ry="3"></ellipse>
@@ -193,7 +204,7 @@
                         <path d="M9 8a3 3 0 0 0 6 0"></path>
                      </svg>
                     {{ __('Gallery') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> --}}
                 <x-responsive-nav-link :href="'/#contact'" class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-address-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -214,17 +225,6 @@
                         <polyline points="11 12 12 12 12 16 13 16"></polyline>
                     </svg>
                     {{ __('About') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="'/package'" class="flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-package" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
-                        <line x1="12" y1="12" x2="20" y2="7.5"></line>
-                        <line x1="12" y1="12" x2="12" y2="21"></line>
-                        <line x1="12" y1="12" x2="4" y2="7.5"></line>
-                        <line x1="16" y1="5.25" x2="8" y2="9.75"></line>
-                     </svg>
-                    {{ __('Package') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="'/checkout'" class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -32,6 +32,8 @@ class BookingController extends Controller
     public function checkout(){      
         $packages=Packages::all();
         $rates=Rates::all();
+        //$checkout = session()->get('checkout', []);
+        //dd($checkout);
         return view('booking.checkout', compact('packages','rates'));
     }
 

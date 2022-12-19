@@ -17,10 +17,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 Route::get('/login', function () {
     return view('auth.login');
 })->middleware(['auth', 'verified'])->name('login');
