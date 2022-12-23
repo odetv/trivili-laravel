@@ -37,15 +37,15 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'admin' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ],
+        // 'admin' => [
+        //     \App\Http\Middleware\EncryptCookies::class,
+        //     \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        //     \Illuminate\Session\Middleware\StartSession::class,
+        //     // \Illuminate\Session\Middleware\AuthenticateSession::class,
+        //     \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        //     \App\Http\Middleware\VerifyCsrfToken::class,
+        //     \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        // ],
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
@@ -62,7 +62,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'adminauth' => \App\Http\Middleware\AdminAuthenticated::class,
+        // 'adminauth' => \App\Http\Middleware\AdminAuthenticated::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -72,5 +72,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'admin' => \App\Http\Middleware\IsAdmin::class
     ];
 }

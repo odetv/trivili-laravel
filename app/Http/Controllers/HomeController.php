@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $package = Packages::all();
-        $packages=Packages::all();
+        $packages = Packages::paginate(3);
         $rates=Rates::all();
         $comunities=Comunity::all();
         return view('dashboard', compact('packages','rates','comunities'));

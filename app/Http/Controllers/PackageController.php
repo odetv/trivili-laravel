@@ -7,34 +7,32 @@ use App\Models\Rates;
 use App\Models\Comunity;
 use Illuminate\Http\Request;
 
-class BookingController extends Controller
+class PackageController extends Controller
 {
     public function package(){      
-        $packages=Packages::all();
+        $packages = Packages::paginate(5);
         $rates=Rates::all();
         $comunities=Comunity::all();
-        return view('booking.package', compact('packages','rates','comunities'));
+        return view('package.package', compact('packages','rates','comunities'));
     }
 
     public function detail($package_id){
 
         $data = Packages::find($package_id);
-        return view('booking.detail', ['package' => $data]);
-        // return Packages::find($package_id);
-        // return Packages::where('package_id', $package_id)->get()->first();
+        return view('package.detail', ['package' => $data]);
     }
 
     public function search(Request $request){
         $data = Packages::where('package_name', 'like', '%'.$request->input('query').'%')->get();
-        return view('booking.search',['packages' => $data]);
+        return view('package.search',['packages' => $data]);
     }
 
     public function checkout(){      
         $packages=Packages::all();
         $rates=Rates::all();
-        //$checkout = session()->get('checkout', []);
-        //dd($checkout);
-        return view('booking.checkout', compact('packages','rates'));
+        // $checkout = session()->get('checkout', []);
+        // dd($checkout);
+        return view('package.checkout', compact('packages','rates'));
     }
 
     public function addToCart($package_id){
@@ -44,6 +42,7 @@ class BookingController extends Controller
             $checkout[$package_id]['quantity']++;
         }  else {
             $checkout[$package_id] = [
+                "package_id" => $package->package_id,
                 "package_name" => $package->package_name,
                 "feature_img" => $package->feature_img,
                 "package_price" => $package->package_price,

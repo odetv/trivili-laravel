@@ -66,7 +66,8 @@
 
                         <x-slot name="content">
                             <!-- Authentication -->
-                            <x-dropdown-link :href="'admin'" class="flex">
+                            @can('admin')
+                                <x-dropdown-link :href="'admin'" class="flex">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-brand-tabler" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M8 9l3 3l-3 3"></path>
@@ -75,6 +76,8 @@
                                  </svg>
                                 {{ __('Admin Panel') }}
                             </x-dropdown-link>
+                            @endcan
+                            
                             @auth
                                 <x-dropdown-link :href="route('profile.edit')" class="flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-user-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -242,6 +245,7 @@
             <nav class="pt-1 pb-1 border-t border-gray-200">
                 <div class="mt-1 space-y-1">
                     <!-- Authentication -->
+                    @can('admin')
                     <x-responsive-nav-link :href="'admin'" class="flex">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-brand-tabler" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -251,6 +255,7 @@
                          </svg>
                         {{ __('Admin Panel') }}
                     </x-responsive-nav-link>
+                    @endcan
                     @auth
                         <x-responsive-nav-link :href="route('profile.edit')" class="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-user-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -58,15 +58,14 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-900">Rp. {{ $details['package_price'] }}
+                                                <div class="text-sm text-gray-900">{{ Str::rupiah($details['package_price']) }}
                                                 </div>
                                             </td>
                                             <td data-th="Quantity">
                                                 <input type="number" value="{{ $details['quantity'] }}"
                                                     class="form-control quantity cart_update w-20 border-none" min="1" />
                                             </td>
-                                            <td data-th="Subtotal" class="text-center">Rp.
-                                                {{ $details['package_price'] * $details['quantity'] }}
+                                            <td data-th="Subtotal" class="text-center">{{ Str::rupiah($details['package_price'] * $details['quantity']) }}
                                             </td>
                                             <td>
                                                 <button class="btn btn-danger btn-sm cart_remove font-semibold text-red-600 hover:text-red-300 transition-all 300ms ease-in-out">Del</button>
@@ -79,7 +78,7 @@
                     </div>
                     <div class="text-right">
                         <div class="mt-4">
-                            <h1 class="text-xl"><strong>Total Rp. {{ $total }}</strong></h1>
+                            <h1 class="text-xl"><strong>Total {{ Str::rupiah($total) }}</strong></h1>
                         </div>
                         <div class="mt-4 flex flex-row justify-end items-center">
                             <div class="font-semibold mr-3 border rounded-lg border-primary p-2 text-primary justify-center items-center hover:bg-secondary hover:border-secondary hover:opacity-80 hover:text-white transition-all 300ms ease-in-out">

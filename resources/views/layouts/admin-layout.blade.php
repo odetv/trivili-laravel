@@ -19,6 +19,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
     <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script> --}}
     <style>
         .bg-sidebar {
             background: #3d68ff;
@@ -77,7 +79,7 @@
                          </svg></i>
                         Dashboard
                     </a>
-                    <a href="/package"
+                    {{-- <a href="/package"
                         class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -87,8 +89,8 @@
                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                          </svg></i>
                         Client Side
-                    </a>
-                    <a href="/addComunity"
+                    </a> --}}
+                    <a href="/#"
                         class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -97,7 +99,18 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                          </svg></i>
-                        Add Comunity
+                        Comunity
+                    </a>
+                    <a href="#"
+                        class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                         </svg></i>
+                        Rates
                     </a>
                 </nav>
             </aside>

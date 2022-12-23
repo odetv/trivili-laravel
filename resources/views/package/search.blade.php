@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto hp:px-3 lg:px-8">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <!-- Komponen Checker -->
-                <div class="flex items-center justify-between border-gray-200 pt-2 pb-6 hp:flex-col">
+                <div class="flex items-center justify-between border-slate-200 pt-2 pb-6 hp:flex-col">
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 hp:text-2xl pb-6">Paket Destinasi Trivili
                     </h1>
                     <div class="flex flex-col justify-center items-center">
@@ -18,7 +18,7 @@
                                     </svg>
                                 </div>
                                 <input name="start" type="text"
-                                    class="px-6 py-2.5 bg-gray-50 border border-slate-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 hp:text-sm transition duration 150 ease-in-out"
+                                    class="px-6 py-2.5 bg-slate-100 border border-slate-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 hp:text-sm transition duration 150 ease-in-out"
                                     placeholder="Check-in">
                             </div>
                             <span class="mx-4 text-gray-500">-</span>
@@ -32,11 +32,11 @@
                                     </svg>
                                 </div>
                                 <input name="end" type="text"
-                                    class="px-6 py-2.5 bg-gray-50 border border-slate-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 hp:text-sm transition duration 150 ease-in-out"
+                                    class="px-6 py-2.5 bg-slate-100 border border-slate-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 hp:text-sm transition duration 150 ease-in-out"
                                     placeholder="Check-out">
                             </div>
                             <button type="button"
-                                class="ml-3 px-6 py-1 lg:py-3 md:py-3 border border-slate-300 text-primary font-medium text-xs leading-tight uppercase rounded-md hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out">
+                                class="ml-3 px-6 py-1 lg:py-3 md:py-3 border border-slate-300 text-xs font-medium rounded-lg bg-primary text-white hover:bg-primary hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">
                                 <a href="#paket-wisata">Cek Tiket</a>
                             </button>
                         </div>
@@ -44,7 +44,8 @@
                 </div>
                 <form action="/search">
                     <div class="max-w-screen-lg mx-auto flex flex-row justify-end pt-2 text-gray-600">
-                        <input required autofocus class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                        <input
+                            class="border-2 border-slate-300 bg-slate-100 h-10 px-5 pr-16 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 transition duration 150 ease-in-out"
                             type="text" name="query" placeholder="Search">
                         <button type="submit" class="ml-3">
                             <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +59,7 @@
                         </button>
                     </div>
                 </form>
+
                 <div class="max-w-screen-lg mx-auto flex flex-row justify-start pt-2 text-gray-600">
                     <h1 class="text-xl font-semibold tracking-tight text-gray-900 hp:text-lg pt-6">Hasil Pencarian :
                     </h1>
@@ -78,42 +80,33 @@
                                                 {{ $item['package_name'] }}
                                             </h1>
                                             <div
-                                                class="price1 w-full flex-none mt-2 order-1 text-3xl fontbold text-violet-600">
-                                                Rp. {{ $item['package_price'] }}
+                                                class="price1 w-full flex-none mt-2 order-1 text-3xl fontbold text-primary">
+                                                {{ $item->formatRupiah('package_price') }}
                                             </div>
                                             <div class="text-sm font-medium text-slate-400">
                                                 Tersedia
                                             </div>
                                         </div>
                                         <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-                                            {{ $item['package_desc'] }}
+                                            {!! $item['package_desc'] !!}
                                         </div>
                                         <div class="flex flex-col lg:flex-row md:flex-row mb-5 text-sm font-medium">
                                             <div class="flex-auto flex space-x-2 mr-4">
-                                                {{-- <button id="open{{ $item->package_id }}"
-                                                    onclick="toggleModal('modal-id')"
-                                                    class="h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg bg-violet-600 text-white hover:bg-primary hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"
-                                                    type="button">Detail
-                                                </button> --}}
                                                 <a href="detail/{{ $item['package_id'] }}">
                                                     <div
-                                                        class="flex items-center justify-center h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg bg-violet-600 text-white hover:bg-primary hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out">
+                                                    class="flex items-center justify-center h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg bg-primary text-white hover:bg-primary hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">
                                                         Detail
                                                     </div>
                                                 </a>
-                                                <button
-                                                    class="h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg border border-slate-200 text-slate-900 hover:bg-green-500 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"
-                                                    type="submit"><a href="#">Booking</a>
-                                                </button>
                                                 <button data-bs-toggle="modal" data-bstarget="#exampleModalLg"
-                                                    class="h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg border border-slate-200 text-slate-900 hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0 transition duration 150 ease-in-out"
+                                                    class="h-10 px-4 lg:px-6 md:px-6 font-semibold rounded-lg border border-slate-300 text-slate-900 hover:bg-red-400 hover:text-white hover:shadow-lg focus:outline-none focus:ring-0 transition duration 150 ease-in-out"
                                                     type="button"><a href="#">Cek Tiket</a>
                                                 </button>
                                             </div>
                                             <div class="flex flex-row space-x-4 mt-4 lg:mt-0 md:mt-0">
                                                 <a href="{{ route('add_to_cart', $item['package_id']) }}">
                                                     <button
-                                                        class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50 hover:text-red-500 transition duration 150 ease-in-out"
+                                                    class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-green-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
                                                         type="button" aria-label="Cart" id="checkout">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                                             height="20" fill="currentColor" class="bi bi-cart3"
@@ -124,7 +117,7 @@
                                                     </button>
                                                 </a>
                                                 <button
-                                                    class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50 hover:text-red-500 transition duration 150 ease-in-out"
+                                                class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-red-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
                                                     type="button" aria-label="Like">
                                                     <svg width="20" height="20" fill="currentColor"
                                                         ariahidden="true">

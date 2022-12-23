@@ -11,7 +11,7 @@
                         bagi wisatawan domestik maupun wisatawan mancanegara yang ingin menghilangkan kepenatan selama
                         melakukan aktivitas kesehariannya. Mulai perjalanan anda bersama kami!</p>
 
-                    <a href="/package" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-lg hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Booking Now</a>
+                    <a href="{{ route('package') }}" class="text-base font-medium text-white bg-primary py-3 px-8 rounded-lg hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Booking Now</a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-9 lg:right-0">
@@ -111,12 +111,15 @@
                             <img src="{{ asset('storage/' . $item->feature_img) }}" alt="Travel" class="object-cover h-48 w-full">
                         </div>
                         <div class="py-8 px-6">
-                            <h3><a href="#"
+                            <h3>
+                                <a href="detail/{{ $item['package_id'] }}"
                                     class="block mb-3 font-semibold text-xl text-primary transition 0.3s ease-in-out hover:text-secondary truncate">
                                     {{ $item->package_name }}
                                 </a>
                             </h3>
-                            <p class="text-base mb-2 truncate">{{ $item->package_desc }}</p>
+                            <div class="truncate">
+                                <p class="text-base mb-2">{!! $item->package_desc !!}</p>
+                            </div>
                             <a href="detail/{{ $item['package_id'] }}"
                                 class="font-medium text-sm text-primary transition 0.3s ease-in-out hover:text-secondary">Baca
                                 selengkapnya</a>

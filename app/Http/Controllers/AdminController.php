@@ -7,6 +7,7 @@ use App\Models\Packages;
 use App\Models\Rates;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\CodeCoverage\Report\Xml\Unit;
 
@@ -17,33 +18,116 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $package = Packages::all();
         $title = "Daftar Paket Wisata";
-        $package = new Packages;
+        $packages = new Packages;
         if (isset($_GET['s'])) {
             $s = $_GET['s'];
-            $package = $package->where('package_name', 'like', "%$s%");
+            $packages = $packages->where('package_name', 'like', "%$s%");
         }
 
-        if(isset($_GET['package_id'])&&$_GET['package_id']!=''){
-            $package=$package->where('comunity_id', $_GET['package_id']);
+        if(isset($_GET['comunity_id'])&&$_GET['comunity_id']!=''){
+            $packages=$packages->where('comunity_id', $_GET['comunity_id']);
         }
-   
-        $package = $package->paginate(100);
-        $packages=Packages::all();
-        $rates=Rates::all();
+
+        $packages = Packages::paginate(5);
         $comunities=Comunity::all();
-        return view('admin.daftarpaket', compact('title', 'package','comunities'));
+        
+        return view('admin.daftarpaket',compact('title', 'packages','comunities'));
     }
 
+    // function action(Request $request)
+    // {
+    //     if($request->ajax())
+    //     {
+    //         $output = '';
+    //         $query = $request->get('query');
+    //         if($query != '') {
+    //             $data = DB::table('packages')
+    //                 ->where('package_name', 'like', '%'.$query.'%')
+    //                 ->get();
+                    
+    //         } else {
+    //             $data = DB::table('packages')
+    //                 // ->orderBy('package_id', 'desc')
+    //                 ->get();
+    //         }
+             
+    //         $total_row = $data->count();
+    //         if($total_row > 0){
+    //             foreach ($data as $item)
+    //             {
+    //                 $output .= '
+    //                 <tr>
+    //                         <td class="px-6 py-4 whitespace-nowrap">
+    //                             <div class="flex items-center"><input type="checkbox" name="" id="">
+    //                                 <div class="flex-shrink-0 h-10 w-10 ml-5">
+    //                                     <img class="h-10 w-10 rounded-full"
+    //                                         src="'.asset('storage/' . $item->feature_img).'" alt="">
+    //                                 </div>
+    //                                 <div class="ml-4">
+    //                                     <div class="text-sm font-medium text-gray-900">
+    //                                         <!-- Menampilkan elemen nama dari object item -->
+    //                                         '.$item->package_name.'
+    //                                     </div>
+    //                                     <div class="text-sm text-gray-500">
+    //                                         Kode Paket : '.$item->package_code.'
+    //                                     </div>
+    //                                     <div class="text-sm text-gray-500">
+    //                                         Lokasi : '.$item->location_name.'
+    //                                     </div>
+    //                                 </div>
+    //                             </div>
+    //                         </td>
+    //                         <td class="px-6 py-4 whitespace-nowrap">
+    //                             <div class="text-sm text-gray-900">'.$item->package_price.'</div>
+    //                         </td>
+    //                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+    //                         <a
+    //                             href="{{ route("paket.comunity", $item->comunity->comunity_name) }}">'.$item->comunity_id.'</a>
+    //                         </td>
+    //                         <td
+    //                             class="px-6 py-4 lg:whitespace-normal md:whitespace-normal tablet:whitespace-normal whitespace-nowrap text-sm text-gray-500">
+    //                             '.$item->package_desc.'
+    //                         </td>
+    //                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+    //                             <form action="'.route('admin.destroy', $item->package_id).'" method="POST">
+    //                                 <!-- Form lengkap dengan token csrf untuk method(DELETE)-->
+    //                                 <!-- link untuk edit-->
+    //                                 <a href="'.route('admin.edit', $item->package_id).'"
+    //                                     class="text-primary hover:text-secondary transition duration-300 ease-in-out">Edit</a>
+    //                                 <!-- button action untuk delete-->
+    //                                 <button class="text-red-600 hover:text-red-900 transition duration-300 ease-in-out"
+    //                                     onclick="return confirm'.('Anda Yakin ?').'" type="submit">Del</button>
+    //                             </form>
+    //                         </td>
+
+    //                 </tr>
+    //                 ';
+    //             }
+    //         } else {
+    //             $output = '
+    //             <tr>
+    //                 <td align="center" colspan="5">Data tidak ditemukan!</td>
+    //             </tr>
+    //             ';
+    //         }
+    //         $data = array(
+    //             'table_data'  => $output,
+    //             'total_data'  => $total_row
+    //         );
+    //         echo json_encode($data);
+    //     }
+    // }
+
     public function comunity($id){
-        //memanggil kelompok berdasarkan id_kelompok_tani
+        //memanggil kelompok berdasarkan id_kelompok
         $comunity=Comunity::where('comunity_id',$id)->first();
         //menampilkan nama kelompok pada title
         $title='Komunitas '.$comunity->comunity_name;
-        //memanggil daftar petani berdasarkan kelompok
+        //memanggil daftar berdasarkan kelompok
         $package=$comunity->package;
         $comunities=Comunity::all();
         return view('admin.daftarpaket',compact('title','package','comunities'));
@@ -78,8 +162,9 @@ class AdminController extends Controller
             'numeric'  => 'Kolom Atribut harus angka!',
         ];
         $validasi = $request->validate([
+            'package_code'=>'required:packages|max:255',
             'package_name'=>'required:packages|max:255',
-            'package_desc'=>'required:packages|max:255',
+            'package_desc'=>'required:packages|max:1024',
             'package_price'=>'numeric:packages',
             'location_name'=>'required:packages|max:255',
             'comunity_id'=>'required:packages|max:255',
@@ -139,8 +224,9 @@ class AdminController extends Controller
             'numeric'  => 'Kolom Atribut harus angka!',
         ];
         $validasi = $request->validate([
+            'package_code'=>'required:packages|max:255',
             'package_name'=>'required:packages|max:255',
-            'package_desc'=>'required:packages|max:255',
+            'package_desc'=>'required:packages|max:1024',
             'package_price'=>'numeric:packages',
             'location_name'=>'required:packages|max:255',
             'comunity_id'=>'required:packages|max:255'

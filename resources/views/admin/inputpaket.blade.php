@@ -1,4 +1,5 @@
 <x-admin-layout>
+    
     <h2 class="lg:mx-4 font-semibold text-xl text-gray-800 leading-tight mb-3">
         <!-- menampilkan variabel title yang dikirim dari controller-->
         {{ $title }}
@@ -13,6 +14,19 @@
                 <div class="sm:overflow-hidden sm:rounded-md">
                     <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
+                            <div class="col-span-3 sm:col-span-2">
+                                <label for="company-website" class="block text-sm font-medium text-gray-700">Kode Paket</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input type="text" name="package_code" value="{{(isset($package))?$package->package_code:old('package_code') }}"
+                                        class="@error('package_code') @enderror block w-full flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        placeholder="Kode Paket Wisata">
+                                </div>
+                                <div class="text-xs text-red-500">
+                                    @error('package_code')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="company-website" class="block text-sm font-medium text-gray-700">Nama Paket</label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
@@ -41,19 +55,22 @@
                             </div>
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="company-website" class="block text-sm font-medium text-gray-700">Komunitas</label>
-                                <select name="comunity_id" value="{{(isset($package))?$package->comunity_id: old('comunity_id') }}"
+                                {{-- <select name="comunity_id" value="{{(isset($package))?$package->comunity_id: old('comunity_id') }}"
                                     class="hidden w-full py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
                                     <option value="">Pilih Komunitas</option>
                                     @foreach ($comunities as $key => $item)
                                         <option>{{ "namaKomunitas" }}</option>
                                     @endforeach
-                                </select>
+                                </select> --}}
                                 <div class="flex flex-row justify-center items-center">
                                     <select name="comunity_id" value="{{(isset($package))?$package->comunity_name: old('comunity_name') }}"
                                         class="@error('package_name') @enderror block w-full py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
-                                        <option>Pilih Komunitas</option>
+                                        <option value="">Pilih Komunitas</option>
                                         @foreach ($comunities as $key => $item)
-                                            <option id="namaKomunitas" value="{{ $item->comunity_id }}" >{{ $item->comunity_name }}</option>
+                                            <option hidden selected>{{ $item->comunity_name }}</option>
+                                            <option
+                                            {{((isset($package)&&$package->comunity_id==$item->community_id) || old('comunity_id')==$item->comunity_id)?'selected':''}}
+                                            id="namaKomunitas" value="{{ $item->comunity_id }}">{{ $item->comunity_name }}</option>
                                         @endforeach
                                     </select>
                                     <div class="ml-2">
@@ -141,4 +158,7 @@
         </div>
     </div>
     
+    <script>
+        CKEDITOR.replace('package_desc');
+    </script>
 </x-admin-layout>

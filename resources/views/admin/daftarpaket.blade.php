@@ -1,8 +1,10 @@
 <x-admin-layout>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <h2 class="lg:mx-4 font-semibold text-xl text-gray-800 leading-tight mb-3">
         <!-- menampilkan variabel title yang dikirim dari controller-->
         {{ $title }}
     </h2>
+    <h2 class="lg:mx-4 font-semibold text-base text-gray-800 leading-tight mb-3 mt-3">Total Data : <span id="total_records"></span></h2>
     <div>
         <div class="lg:mx-4 shadow px-2 py-2 bg-white rounded sm:px-1 sm:py-1">
             <div class="lg:grid lg:grid-cols-12 flex flex-col-reverse justify-center items-center">
@@ -22,31 +24,30 @@
                         <div class="flex flex-row items-center">
                             <div>
                                 <!-- memberikan filter berupa kelompok tani-->
-                                <select id="paket" name="package_id"
+                                <select id="comunity_id" name="comunity_id"
                                     class="block w-full py-2 border border-gray-300 bg-white rounded-l-2xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
                                     <option value="">Pilih Komunitas</option>
-                                    <!-- menampilkan list kelompok petani-->
-                                    {{-- @foreach ($package as $item)
-                                        <option value="{{ $item->package_id_paket }}"
-                                            {{ isset($_GET['package_id']) && $_GET['package_id'] == $item->package_id_paket ? 'selected' : '' }}>
-                                            {{ $item->package_name }}</option>
-                                    @endforeach --}}
-                                    @foreach ($comunities as $key => $item)
+                                    @foreach ($comunities as $item)
                                         <option value="{{ $item->comunity_id }}"
-                                            {{ isset($_GET['package_id']) && $_GET['package_id'] == $item->comunity_id? 'selected' : '' }}>
+                                            {{ isset($_GET['comunity_id']) && $_GET['comunity_id'] == $item->comunity_id ? 'selected' : '' }}>
                                             {{ $item->comunity_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="flex items-center">
-                                <input type="text" name="s" value="{{ isset($_GET['s']) ? $_GET['s'] : '' }}"
+                                <input type="text" name="search" id="search"
+                                {{-- <input type="text" name="s" value="{{ isset($_GET['s']) ? $_GET['s'] : '' }}" --}}
                                     class="rounded-r-2xl px-4 py-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 transition duration-300 ease-in-out">
-                                <button class="ml-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-primary hover:text-secondary icon icon-tabler icon-tabler-search transition duration-300 ease-in-out" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <button type="submit" class="ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="text-primary hover:text-secondary icon icon-tabler icon-tabler-search transition duration-300 ease-in-out"
+                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <circle cx="10" cy="10" r="7"></circle>
                                         <line x1="21" y1="21" x2="15" y2="15"></line>
-                                     </svg>
+                                    </svg>
                                 </button>
                             </div>
                         </div>
@@ -84,7 +85,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     <!-- menggunakan foreach untuk menampilkan list array ataupun collection-->
-                    @foreach ($package as $item)
+                    @foreach ($packages as $item)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center"><input type="checkbox" name="" id="">
@@ -98,19 +99,24 @@
                                             {{ $item->package_name }}
                                         </div>
                                         <div class="text-sm text-gray-500">
+                                            Kode Paket : {{ $item->package_code }}
+                                        </div>
+                                        <div class="text-sm text-gray-500">
                                             Lokasi : {{ $item->location_name }}
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">Rp. {{ $item->package_price }}</div>
+                                <div class="text-sm text-gray-900">{{ $item->formatRupiah('package_price') }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                <a href="{{route('paket.comunity',$item->comunity->comunity_name)}}">{{$item->comunity->comunity_name}}</a>
+                                <a
+                                    href="{{ route('paket.comunity', $item->comunity->comunity_name) }}">{{ $item->comunity->comunity_name }}</a>
                             </td>
-                            <td class="px-6 py-4 lg:whitespace-normal md:whitespace-normal tablet:whitespace-normal whitespace-nowrap text-sm text-gray-500">
-                                {{ $item->package_desc }}
+                            <td
+                                class="px-6 py-4 lg:whitespace-normal md:whitespace-normal tablet:whitespace-normal whitespace-nowrap text-sm text-gray-500">
+                                {!! $item->package_desc !!}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <form action="{{ route('admin.destroy', $item->package_id) }}" method="POST">
@@ -130,14 +136,37 @@
                 </tbody>
             </table>
         </div>
+        <!-- PAGINATION -->
+        <div class="m-4 mr-20 ml-20 lg:ml-0 lg:mr-0 md:ml-0 md:mr-0">
+            {{-- {{ $packages->links() }} --}}
+            {{$packages->appends(request()->query())->links()}}
+        </div>
+        <!-- END PAGINATION -->
     </div>
-    <!-- PAGINATION -->
-    <!-- menampilkan pagination lengkap dengan parameter pencarian-->
-    <!-- oleh karena itu pagination dilengkapi dengan request query-->
-    <!-- Memberikan kondisi berdasarkan path url -->
-    <?php if (Request::path()=='paket') {?>
-        <div class="m-4"> {{ $package->appends(request()->query())->links() }} </div>
-    <?php } ?>
-    <!-- END PAGINATION -->
-    
+    {{-- <script>
+        $(document).ready(function(){
+         
+            fetch_customer_data();
+         
+            function fetch_customer_data(query = '')
+            {
+                $.ajax({
+                    url:"{{ route('action') }}",
+                    method:'GET',
+                    data:{query:query},
+                    dataType:'json',
+                    success:function(data)
+                    {
+                        $('tbody').html(data.table_data);
+                        $('#total_records').text(data.total_data);
+                    }
+                })
+            }
+         
+            $(document).on('keyup', '#search', function(){
+                var query = $(this).val();
+                fetch_customer_data(query);
+            });
+        });
+    </script> --}}
 </x-admin-layout>

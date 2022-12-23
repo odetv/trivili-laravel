@@ -44,7 +44,8 @@
                 </div>
                 <form action="/search">
                     <div class="max-w-screen-lg mx-auto flex flex-row justify-end pt-2 text-gray-600">
-                        <input class="border-2 border-slate-300 bg-slate-100 h-10 px-5 pr-16 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 transition duration 150 ease-in-out"
+                        <input
+                            class="border-2 border-slate-300 bg-slate-100 h-10 px-5 pr-16 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 transition duration 150 ease-in-out"
                             type="text" name="query" placeholder="Search">
                         <button type="submit" class="ml-3">
                             <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -79,14 +80,14 @@
                                             </h1>
                                             <div
                                                 class="price1 w-full flex-none mt-2 order-1 text-3xl fontbold text-primary">
-                                                Rp.{{ $item->package_price }}
+                                                {{ $item->formatRupiah('package_price') }}
                                             </div>
                                             <div class="text-sm font-medium text-slate-400">
                                                 Tersedia
                                             </div>
                                         </div>
                                         <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-                                            {{ $item->package_desc }}
+                                            {!! $item->package_desc !!}
                                         </div>
                                         <div class="flex flex-col lg:flex-row md:flex-row mb-5 text-sm font-medium">
                                             <div class="flex-auto flex space-x-2 mr-4">
@@ -104,7 +105,7 @@
                                             <div class="flex flex-row space-x-4 mt-4 lg:mt-0 md:mt-0">
                                                 <a href="{{ route('add_to_cart', $item->package_id) }}">
                                                     <button
-                                                        class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary hover:bg-white hover:text-green-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
+                                                        class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-green-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
                                                         type="button" aria-label="Cart" id="checkout">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                                             height="20" fill="currentColor" class="bi bi-cart3"
@@ -115,7 +116,7 @@
                                                     </button>
                                                 </a>
                                                 <button
-                                                    class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary hover:bg-white hover:text-red-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
+                                                    class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-red-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
                                                     type="button" aria-label="Like">
                                                     <svg width="20" height="20" fill="currentColor"
                                                         ariahidden="true">
@@ -135,6 +136,11 @@
                                 </div>
                             @endif
                         @endforeach
+                        <!-- PAGINATION -->
+                        <div class="m-4">
+                            {{ $packages->links() }}
+                        </div>
+                        <!-- END PAGINATION -->
                     </section>
                 </div>
             </div>

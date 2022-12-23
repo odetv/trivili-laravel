@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Des 2022 pada 07.45
+-- Waktu pembuatan: 23 Des 2022 pada 15.13
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_trivili`
 --
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `admins`
---
-
-CREATE TABLE `admins` (
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `admins`
---
-
-INSERT INTO `admins` (`name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-('Admin Trivili', 'admin@trivili.com', 'admin@trivili.com', '2022-12-10 12:45:30', '2022-12-10 12:45:30');
 
 -- --------------------------------------------------------
 
@@ -152,11 +131,15 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`package_id`, `package_code`, `package_name`, `package_price`, `permalink`, `package_desc`, `feature_img`, `location_name`, `location_id`, `comunity_id`, `rate_id`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Kecak Fire Dance', '150000', NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'features_img/1670999924P1.jpg', 'Ubud', NULL, 1, NULL, '2022-12-13 13:33:58', '2022-12-13 22:38:44'),
-(2, NULL, 'Kecak Dance Tabanan', '125000', NULL, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', 'features_img/1670999942P2.jpg', 'Tabanan', NULL, 2, NULL, '2022-12-13 13:38:33', '2022-12-13 22:39:02'),
-(3, NULL, 'Kecak Baud Bali Utara', '145000', NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.', 'features_img/1670999955P3.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-13 13:42:38', '2022-12-13 22:39:15'),
-(4, NULL, 'Kecak Sidetapa', '130000', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable.', 'features_img/1670999967P4.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-13 13:43:26', '2022-12-13 22:39:27'),
-(5, NULL, 'PKB Bali 2022', '110000', NULL, 'Pesta Kesenian Bali adalah parade atau festival kesenian tahunan yang diprakarsai oleh Pemerintah Provinsi Bali, dalam upaya mendukung program pemerintah dalam hal penggalian, pelestarian, dan pengembangan nilai-nilai seni budaya Bali.', 'features_img/1671000165P5.jpg', 'Bali', NULL, 2, NULL, '2022-12-13 22:42:45', '2022-12-13 22:42:45');
+(1, 'P001', 'Kecak Fire Dance', '120000', NULL, '<p><a href=\"https://github.com/odetv/trivili-laravel\" target=\"_blank\"><em>This Project</em></a> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>', 'features_img/1670999924P1.jpg', 'Ubud', NULL, 1, NULL, '2022-12-13 13:33:58', '2022-12-20 01:42:06'),
+(2, 'P002', 'Kecak Dance Tabanan', '90000', NULL, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', 'features_img/1670999942P2.jpg', 'Tabanan', NULL, 2, NULL, '2022-12-13 13:38:33', '2022-12-13 22:39:02'),
+(3, 'P003', 'Kecak Baud Bali Utara', '100000', NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.', 'features_img/1670999955P3.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-13 13:42:38', '2022-12-13 22:39:15'),
+(4, 'P004', 'Kecak Sidetapa', '115000', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable.', 'features_img/1670999967P4.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-13 13:43:26', '2022-12-13 22:39:27'),
+(5, 'P005', 'PKB Bali 2022', '125000', NULL, 'Pesta Kesenian Bali adalah parade atau festival kesenian tahunan yang diprakarsai oleh Pemerintah Provinsi Bali, dalam upaya mendukung program pemerintah dalam hal penggalian, pelestarian, dan pengembangan nilai-nilai seni budaya Bali.', 'features_img/1671000165P5.jpg', 'Bali', NULL, 2, NULL, '2022-12-13 22:42:45', '2022-12-13 22:42:45'),
+(7, 'P006', 'Kecak Bali Kaja 2022', '150000', NULL, '<p>Dummy kecak bali kaja 2022</p>', 'features_img/1671496889P2.jpg', 'Bali', NULL, 1, NULL, '2022-12-19 16:41:29', '2022-12-21 06:48:24'),
+(8, 'P007', 'Kecak 1', '110000', NULL, '<p>-</p>', 'features_img/1671532107P4.jpg', 'Bali', NULL, 1, NULL, '2022-12-20 09:28:27', '2022-12-20 09:28:27'),
+(9, 'P008', 'Kecak 2', '95000', NULL, '<p>-</p>', 'features_img/1671532407P2.jpg', 'Bali', NULL, 1, NULL, '2022-12-20 10:33:27', '2022-12-20 10:33:27'),
+(10, 'P009', 'Kecak 3', '100000', NULL, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'features_img/1671604932P5.jpg', 'Bali', NULL, 2, NULL, '0000-00-00 00:00:00', '2022-12-23 14:11:31');
 
 -- --------------------------------------------------------
 
@@ -225,9 +208,7 @@ CREATE TABLE `rates` (
 
 INSERT INTO `rates` (`rate_id`, `package_id`, `rate_name`, `date_from`, `date_end`, `qty_per_day`, `adult_rate`, `child_rate`, `infant_rate`, `foreign_adult_rate`, `foreign_child_rate`, `foreign_infant_rate`, `created_at`, `updated_at`) VALUES
 (1, 1, NULL, NULL, NULL, NULL, '155000', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 2, NULL, NULL, NULL, NULL, '130000', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-05 01:21:44', '2022-12-05 01:21:44'),
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-05 01:25:56', '2022-12-05 01:25:56');
+(2, 2, NULL, NULL, NULL, NULL, '130000', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -252,6 +233,7 @@ CREATE TABLE `sessions` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -268,9 +250,10 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$ersDAXTLBNoUsqHZ.ldefO3efteHS7vvjOno0mEX9wVwD7FvaryIm', NULL, NULL, NULL, NULL, '2022-11-03 22:16:03', '2022-12-09 05:46:40'),
-(3, 'I Gede Gelgel Abdiutama', 'abdiutama02@gmail.com', NULL, '$2y$10$cdHLc1SmWyL.Azi6lpKDC.FknOHZgD6DdGddz1bU.AM7LuI4PJXzi', NULL, NULL, NULL, NULL, '2022-12-13 21:30:40', '2022-12-13 21:30:40');
+INSERT INTO `users` (`id`, `is_admin`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, 'admin', 'admin@gmail.com', NULL, '$2y$10$ersDAXTLBNoUsqHZ.ldefO3efteHS7vvjOno0mEX9wVwD7FvaryIm', NULL, NULL, NULL, NULL, '2022-11-03 22:16:03', '2022-12-09 05:46:40'),
+(3, 0, 'I Gede Gelgel Abdiutama', 'abdiutama02@gmail.com', NULL, '$2y$10$cdHLc1SmWyL.Azi6lpKDC.FknOHZgD6DdGddz1bU.AM7LuI4PJXzi', NULL, NULL, NULL, NULL, '2022-12-13 21:30:40', '2022-12-13 21:30:40'),
+(4, 0, 'User', 'user@gmail.com', NULL, '$2y$10$SNdLi/VaeYAcnUr.GR/8ZOOnG.i1TiwiqAxUw8MlESPSkbn4spLQu', NULL, NULL, NULL, NULL, '2022-12-22 04:21:12', '2022-12-22 04:21:12');
 
 --
 -- Indexes for dumped tables
@@ -377,7 +360,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -395,7 +378,7 @@ ALTER TABLE `rates`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
