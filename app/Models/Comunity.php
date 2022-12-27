@@ -11,7 +11,7 @@ class Comunity extends Model
     public $primaryKey = 'comunity_id';
     protected $table = "comunities";
     protected $fillable = [
-        'comunity_name','village_id','contact_name','comunity_desc','comunity_logo'
+        'comunity_name','comunity_location','village_id','contact','comunity_desc','comunity_logo'
     ];
     public function packages() {
         return $this->hasMany(Packages::class,'comunity_id','comunity_id');

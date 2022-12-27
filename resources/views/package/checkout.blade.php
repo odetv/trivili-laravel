@@ -34,25 +34,19 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 text-center">
-                                @php $total = 0 @endphp
-                                @if (session('checkout'))
                                     @foreach (session('checkout') as $package_id => $details)
-                                        @php $total += $details['package_price'] * $details['quantity'] @endphp
                                         <tr data-id="{{ $package_id }}">
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center"><input type="checkbox" name=""
                                                         id="">
                                                     <div class="flex-shrink-0 h-10 w-10 ml-5">
                                                         <img class="h-10 w-10 rounded-full"
-                                                            src="{{ asset('storage/'.$details['feature_img']) }}"
+                                                            src="{{ asset('storage/' . $details['feature_img']) }}"
                                                             alt="">
                                                     </div>
                                                     <div class="ml-4">
                                                         <div class="text-sm text-gray-900">
                                                             {{ $details['package_name'] }}
-                                                        </div>
-                                                        <div class="text-sm text-gray-500">
-                                                            {{-- {{ $details['location_name'] }} --}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -72,7 +66,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @endif
+                                {{-- @endif --}}
                             </tbody>
                         </table>
                     </div>

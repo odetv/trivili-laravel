@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Des 2022 pada 15.13
+-- Waktu pembuatan: 27 Des 2022 pada 06.43
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -29,11 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `comunities` (
   `comunity_id` int(11) NOT NULL,
-  `comunity_name` varchar(45) DEFAULT NULL,
+  `comunity_name` varchar(255) DEFAULT NULL,
   `village_id` int(11) DEFAULT NULL,
-  `contact_name` varchar(45) DEFAULT NULL,
+  `comunity_location` varchar(255) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
   `comunity_desc` text DEFAULT NULL,
-  `comunity_logo` varchar(45) DEFAULT NULL,
+  `comunity_logo` varchar(1024) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,9 +43,13 @@ CREATE TABLE `comunities` (
 -- Dumping data untuk tabel `comunities`
 --
 
-INSERT INTO `comunities` (`comunity_id`, `comunity_name`, `village_id`, `contact_name`, `comunity_desc`, `comunity_logo`, `created_at`, `updated_at`) VALUES
-(1, 'Kecak FD Bali', NULL, NULL, NULL, NULL, '2022-12-14 05:35:30', '2022-12-14 05:35:30'),
-(2, 'Kecak Tradisional', NULL, NULL, NULL, NULL, '2022-12-14 05:35:39', '2022-12-14 05:35:39');
+INSERT INTO `comunities` (`comunity_id`, `comunity_name`, `village_id`, `comunity_location`, `contact`, `comunity_desc`, `comunity_logo`, `created_at`, `updated_at`) VALUES
+(1, 'Kecak FD Bali', NULL, 'Ubud', '082549872234', '<p>Deskripsi Komunitas&nbsp;Kecak FD Bali</p>', 'comunity_logo/1672039827bzsyu1hygsly.gif', '2022-12-14 05:35:30', '2022-12-26 09:00:39'),
+(2, 'Kecak Tradisional', NULL, 'Bali', '086232342312', '<p>Deskripsi Komunitas&nbsp;Kecak Tradisional</p>', 'comunity_logo/1672039770Jobs_Filmmaker_Share.jpg', '2022-12-14 05:35:39', '2022-12-26 09:00:21'),
+(16, 'Bali Kaja', NULL, 'Denpasar', '09145324234', '<p>Deskripsi Komunitas&nbsp;Bali Kaja</p>', 'comunity_logo/16720422531513833047_864140304_preview_ROG-Text-RGB-PREVIEW.gif', '2022-12-26 08:10:53', '2022-12-26 09:00:08'),
+(17, 'Kecak Kocak', NULL, 'Buleleng', '08546234123', '<p>Deskripsi Komunitas&nbsp;Kecak Kocak</p>', 'comunity_logo/1672042320ODE.jpg', '2022-12-26 08:12:00', '2022-12-26 08:59:55'),
+(30, 'Cak Kecak Buldog', NULL, 'Buleleng', '088123421000', '<p>Deskripsi Komunitas Cak Kecak Buldog</p>', 'comunity_logo/1672045159film_making_pro.png', '2022-12-26 08:59:19', '2022-12-26 08:59:43'),
+(31, 'Kecak Bali Dogen', NULL, 'Bali', '085118996256', '<p>Deskripsi Komunitas&nbsp;Kecak Bali Dogen</p>', 'comunity_logo/16720452776.jpg', '2022-12-26 09:01:17', '2022-12-26 09:01:17');
 
 -- --------------------------------------------------------
 
@@ -139,7 +144,9 @@ INSERT INTO `packages` (`package_id`, `package_code`, `package_name`, `package_p
 (7, 'P006', 'Kecak Bali Kaja 2022', '150000', NULL, '<p>Dummy kecak bali kaja 2022</p>', 'features_img/1671496889P2.jpg', 'Bali', NULL, 1, NULL, '2022-12-19 16:41:29', '2022-12-21 06:48:24'),
 (8, 'P007', 'Kecak 1', '110000', NULL, '<p>-</p>', 'features_img/1671532107P4.jpg', 'Bali', NULL, 1, NULL, '2022-12-20 09:28:27', '2022-12-20 09:28:27'),
 (9, 'P008', 'Kecak 2', '95000', NULL, '<p>-</p>', 'features_img/1671532407P2.jpg', 'Bali', NULL, 1, NULL, '2022-12-20 10:33:27', '2022-12-20 10:33:27'),
-(10, 'P009', 'Kecak 3', '100000', NULL, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'features_img/1671604932P5.jpg', 'Bali', NULL, 2, NULL, '0000-00-00 00:00:00', '2022-12-23 14:11:31');
+(10, 'P009', 'Kecak 3', '100000', NULL, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'features_img/1671604932P5.jpg', 'Bali', NULL, 2, NULL, '0000-00-00 00:00:00', '2022-12-23 14:11:31'),
+(11, 'P009', 'Kecak 3', '190000', NULL, '<p>-</p>', 'features_img/16718769941670999955P3.jpg', 'Buleleng', NULL, 2, NULL, '2022-12-24 10:12:38', '2022-12-26 07:36:41'),
+(12, 'P010', 'Kecak Kaja', '110000', NULL, '<p>-</p>', 'features_img/1672044734P1.jpg', 'Denpasar', NULL, 16, NULL, '2022-12-26 08:52:14', '2022-12-26 08:52:14');
 
 -- --------------------------------------------------------
 
@@ -234,6 +241,7 @@ CREATE TABLE `sessions` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `user_photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -250,10 +258,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `is_admin`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'admin', 'admin@gmail.com', NULL, '$2y$10$ersDAXTLBNoUsqHZ.ldefO3efteHS7vvjOno0mEX9wVwD7FvaryIm', NULL, NULL, NULL, NULL, '2022-11-03 22:16:03', '2022-12-09 05:46:40'),
-(3, 0, 'I Gede Gelgel Abdiutama', 'abdiutama02@gmail.com', NULL, '$2y$10$cdHLc1SmWyL.Azi6lpKDC.FknOHZgD6DdGddz1bU.AM7LuI4PJXzi', NULL, NULL, NULL, NULL, '2022-12-13 21:30:40', '2022-12-13 21:30:40'),
-(4, 0, 'User', 'user@gmail.com', NULL, '$2y$10$SNdLi/VaeYAcnUr.GR/8ZOOnG.i1TiwiqAxUw8MlESPSkbn4spLQu', NULL, NULL, NULL, NULL, '2022-12-22 04:21:12', '2022-12-22 04:21:12');
+INSERT INTO `users` (`id`, `is_admin`, `user_photo`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, 'user_photo/1672061313v4TtBt2.jpg', 'Admin', 'admin@gmail.com', NULL, '$2y$10$f2gtlUjX9UVRWQvaEEYqb.9opPfsmh75ewIMy9wZaP0Cie7TSYmQO', NULL, NULL, NULL, NULL, '2022-11-03 22:16:03', '2022-12-26 13:52:44'),
+(3, 0, 'user_photo/1672061280FOTO IJASAH BERWARNA - I GEDE GELGEL ABDIUTAMA.jpg', 'I Gede Gelgel Abdi Utama', 'abdiutama02@gmail.com', NULL, '$2y$10$a0zpQW4lDX62sU0And42kefqtuhQt8KHX5hK0mK7WTwlBUBMsPgI2', NULL, NULL, NULL, NULL, '2022-12-13 21:30:40', '2022-12-27 05:29:48');
 
 --
 -- Indexes for dumped tables
@@ -336,7 +343,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `comunities`
 --
 ALTER TABLE `comunities`
-  MODIFY `comunity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `comunity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `disc`
@@ -360,7 +367,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -378,7 +385,7 @@ ALTER TABLE `rates`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

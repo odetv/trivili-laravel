@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminPackageController;
+use App\Http\Controllers\AdminComunityController;
+use App\Http\Controllers\AdminRateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PackageController;
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminAuthController;
@@ -22,11 +26,26 @@ Route::get('/login', function () {
 });
 
 Route::middleware('admin')->group(function () {
-    Route::resource('admin', AdminController::class);
+    Route::resource('admin', AdminDashboardController::class);
 });
-Route::get('/action', [AdminController::class, 'action'])->name('action');
 
-Route::get('comunity/{id}', [AdminController::class,'comunity'])->name('paket.comunity');
+Route::middleware('admin')->group(function () {
+    Route::resource('admin-user', AdminUserController::class);
+});
+
+Route::middleware('admin')->group(function () {
+    Route::resource('admin-package', AdminPackageController::class);
+});
+
+Route::middleware('admin')->group(function () {
+    Route::resource('admin-comunity', AdminComunityController::class);
+});
+
+Route::middleware('admin')->group(function () {
+    Route::resource('admin-rate', AdminRateController::class);
+});
+
+Route::get('comunity/{id}', [AdminPackageController::class,'comunity'])->name('package.comunity');
 
 Route::get('package', [PackageController::class, 'package'])->name('package');
 Route::get('checkout', [PackageController::class, 'checkout'])->name('checkout');

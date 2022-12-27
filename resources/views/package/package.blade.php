@@ -36,7 +36,7 @@
                                     placeholder="Check-out">
                             </div>
                             <button type="button"
-                                class="ml-3 px-6 py-1 lg:py-3 md:py-3 border border-slate-300 text-xs font-medium rounded-lg bg-primary text-white hover:bg-primary hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">
+                                class="ml-3 px-6 py-1 lg:py-3 md:py-3 border border-slate-300 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">
                                 <a href="#paket-wisata">Cek Tiket</a>
                             </button>
                         </div>
@@ -75,14 +75,14 @@
                                     </div>
                                     <form class="p-6 w-full">
                                         <div class="flex flex-wrap">
-                                            <h1 class="item1 flex-auto font-medium text-slate-900">
+                                            <h1 class="item1 flex-auto font-semibold text-3xl text-slate-900">
                                                 {{ $item->package_name }}
                                             </h1>
-                                            <div
-                                                class="price1 w-full flex-none mt-2 order-1 text-3xl fontbold text-primary">
+                                            <div class="w-full flex-none mt-2 order-1 text-2xl fontbold text-primary">
                                                 {{ $item->formatRupiah('package_price') }}
                                             </div>
-                                            <div class="text-sm font-medium text-slate-400">
+                                            <div
+                                                class="px-2 flex items-center bg-green-500 rounded-lg text-xs font-medium text-white">
                                                 Tersedia
                                             </div>
                                         </div>
@@ -103,18 +103,19 @@
                                                 </button>
                                             </div>
                                             <div class="flex flex-row space-x-4 mt-4 lg:mt-0 md:mt-0">
-                                                <a href="{{ route('add_to_cart', $item->package_id) }}">
-                                                    <button
-                                                        class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-green-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
-                                                        type="button" aria-label="Cart" id="checkout">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                                            height="20" fill="currentColor" class="bi bi-cart3"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                                        </svg>
-                                                    </button>
-                                                </a>
+                                                {{-- <a href="{{ route('add_to_cart', $item->package_id) }}">
+                                                <button
+                                                    class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-green-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
+                                                    type="button" aria-label="Cart" id="checkout"
+                                                    data-dropdown-toggle="dropdown-variant-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                        height="20" fill="currentColor" class="bi bi-cart3"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                    </svg>
+                                                </button>
+                                                </a> --}}
                                                 <button
                                                     class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-primary bg-slate-100 hover:bg-white hover:text-red-700 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out"
                                                     type="button" aria-label="Like">
@@ -132,6 +133,22 @@
                                         <p class="text-sm text-slate-500">
                                             Comunity : {{ $item->comunity->comunity_name }}
                                         </p>
+                                        {{-- <section class="flex items-center px-1 pt-1 focus:outline-none">
+                                            <div class="max-w-lg flex flex-row">
+                                                <!-- Dropdown menu -->
+                                                <div class="hidden z-50 p-2 bg-slate-100 rounded-lg shadow-lg"
+                                                    id="dropdown-variant-item">
+                                                    <h1 class="text-sm font-semibold text-center text-gray-900">
+                                                        Kategori
+                                                    </h1>
+                                                    <div
+                                                        class="flex flex-row items-center justify-center rounded-lg p-2 focus:outline-none focus:border-primary text-xs">
+                                                        <a href="{{ route('add_to_cart', $item->package_id) }}"><button type="submit" id="checkout" class="font-semibold text-white px-2 py-2 bg-primary rounded-md mx-3 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Adult</button></a>
+                                                        <a href="{{ route('add_to_cart', $item->package_id) }}"><button type="submit" id="checkout" class="font-semibold text-white px-2 py-2 bg-primary rounded-md mx-3 hover:shadow-lg hover:opacity-50 transition duration-300 ease-in-out">Child</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section> --}}
                                     </form>
                                 </div>
                             @endif

@@ -23,8 +23,8 @@
                                     @endauth
                                 </button>
                                 <button
-                                    class="relative z-10 w-12 h-12 rounded-full overflowhidden border-4 border-gray-400 hover:border-gray-300 focus:outlinenone transition duration-300 ease-in-out">
-                                    <img src="/img/adminPhoto.jpg" class="rounded-full">
+                                    class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:outlinenone transition duration-300 ease-in-out">
+                                    <img src="{{ asset('storage/' . Auth::user()->user_photo) }}" class="object-cover w-12 h-12">
                                 </button>
                             </div>
                         </x-slot>
@@ -109,7 +109,7 @@
                         @auth
                             <div class="flex flex-row items-center">
                                 <div>
-                                    <img src="/img/adminPhoto.jpg" class="rounded-full w-10">
+                                    <img src="{{ asset('storage/' . Auth::user()->user_photo) }}" class="rounded-full object-cover w-10 h-10">
                                 </div>
                                 <div class="ml-3">
                                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>

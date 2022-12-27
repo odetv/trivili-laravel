@@ -29,66 +29,6 @@
             </div>
         </div>
     </section>
-    <!-- Home Section End -->
-
-    {{-- <!-- Pricing Section Start -->
-    <section id="pricing" class="pt-36 pb-16 bg-slate-100">
-        <div class="container">
-            <div class="w-full px-4">
-                <div class="mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Pricing</h4>
-                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">Destinasi Wisata</h2>
-                    <p class="text-base text-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates odio est assumenda
-                        voluptatibus voluptatem ratione dignissimos.
-                    </p>
-                </div>
-            </div>
-            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-12 p-4 md:w-1/2 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="img/pricing/P1.jpg" alt="Pantai Kuta" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-primary mt-5 mb-3">Pantai Kuta</h3>
-                    <p class="text-base text-dark">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit voluptates dolore, facere rerum
-                        eaque magnam sed.
-                    </p>
-                </div>
-                <div class="mb-12 p-4 md:w-1/2 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="img/pricing/P2.jpg" alt="Pantai Lovina" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-primary mt-5 mb-3">Pantai Lovina</h3>
-                    <p class="text-base text-dark">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit voluptates dolore, facere rerum
-                        eaque magnam sed.
-                    </p>
-                </div>
-                <div class="mb-12 p-4 md:w-1/2 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="img/pricing/P4.jpg" alt="Kecak Fire & Trance Dance" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-primary mt-5 mb-3">Kecak Fire & Trance Dance</h3>
-                    <p class="text-base text-dark">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit voluptates dolore, facere rerum
-                        eaque magnam sed.
-                    </p>
-                </div>
-                <div class="mb-12 p-4 md:w-1/2 hover:scale-105 transition duration-300 ease-in-out">
-                    <div class="rounded-md shadow-md overflow-hidden">
-                        <img src="img/pricing/P3.jpg" alt="Kebun Raya Bedugul Bali" width="w-full">
-                    </div>
-                    <h3 class="font-semibold text-xl text-primary mt-5 mb-3">Kebun Raya Bedugul Bali</h3>
-                    <p class="text-base text-dark">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit voluptates dolore, facere rerum
-                        eaque magnam sed.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Pricing Section End --> --}}
 
     <!-- Package Section Start -->
     <section id="package" class="pt-36 pb-32 bg-slate-100">

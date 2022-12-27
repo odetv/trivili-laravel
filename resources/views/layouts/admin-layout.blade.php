@@ -20,7 +20,12 @@
     <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
     <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script> --}}
+    <!-- Nucleo Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
     <style>
         .bg-sidebar {
             background: #3d68ff;
@@ -61,7 +66,7 @@
                         <p class="text-white text-2xl font-bold">Admin Panel</p>
                     </div>
     
-                    <a href="{{ route('admin.create') }}">
+                    <a href="{{ route('admin-package.create') }}">
                         <button
                             class="w-full text-primary bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bllg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center transition duration-300 ease-in-out">
                             <i class="fas fa-plus mr-3 text-primary"></i><p class="text-primary">New Package</p>
@@ -79,37 +84,24 @@
                          </svg></i>
                         Dashboard
                     </a>
-                    {{-- <a href="/package"
-                        class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                         </svg></i>
-                        Client Side
-                    </a> --}}
-                    <a href="/#"
-                        class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                         </svg></i>
-                        Comunity
+                    <a href="{{ route('admin-user.index') }}"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <i class="fas fa-users text-white text-lg relative mr-3"></i>
+                        Users
                     </a>
-                    <a href="#"
-                        class="flex items-center text-white opacity75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-3 icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                         </svg></i>
+                    <a href="{{ route('admin-package.index') }}"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <i class="fas fa-ticket text-white text-lg relative mr-3"></i>
+                        Packages
+                    </a>
+                    <a href="{{ route('admin-comunity.index') }}"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <i class="fas fa-network-wired text-white text-lg relative mr-3"></i>
+                        Comunities
+                    </a>
+                    <a href="{{ route('admin-rate.index') }}"
+                        class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item transition duration-300 ease-in-out">
+                        <i class="fas fa-wallet text-white text-lg relative mr-3"></i>
                         Rates
                     </a>
                 </nav>

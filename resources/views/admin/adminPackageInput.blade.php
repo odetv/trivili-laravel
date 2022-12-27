@@ -1,12 +1,11 @@
 <x-admin-layout>
     
     <h2 class="lg:mx-4 font-semibold text-xl text-gray-800 leading-tight mb-3">
-        <!-- menampilkan variabel title yang dikirim dari controller-->
         {{ $title }}
     </h2>
     <div>
         <div class="lg:mx-4 shadow px-6 py-4 bg-white rounded sm:px-1 sm:py-1 ">
-            <form action="{{(isset($package))?route('admin.update', $package->package_id):route('admin.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{(isset($package))?route('admin-package.update', $package->package_id):route('admin-package.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (isset($package))
                     @method('PUT')
@@ -55,29 +54,21 @@
                             </div>
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="company-website" class="block text-sm font-medium text-gray-700">Komunitas</label>
-                                {{-- <select name="comunity_id" value="{{(isset($package))?$package->comunity_id: old('comunity_id') }}"
-                                    class="hidden w-full py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
-                                    <option value="">Pilih Komunitas</option>
-                                    @foreach ($comunities as $key => $item)
-                                        <option>{{ "namaKomunitas" }}</option>
-                                    @endforeach
-                                </select> --}}
                                 <div class="flex flex-row justify-center items-center">
                                     <select name="comunity_id" value="{{(isset($package))?$package->comunity_name: old('comunity_name') }}"
                                         class="@error('package_name') @enderror block w-full py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-300 ease-in-out">
                                         <option value="">Pilih Komunitas</option>
                                         @foreach ($comunities as $key => $item)
-                                            <option hidden selected>{{ $item->comunity_name }}</option>
-                                            <option
-                                            {{((isset($package)&&$package->comunity_id==$item->community_id) || old('comunity_id')==$item->comunity_id)?'selected':''}}
-                                            id="namaKomunitas" value="{{ $item->comunity_id }}">{{ $item->comunity_name }}</option>
+                                            <option value="{{ $item->comunity_id }}"
+                                            {{ ((isset($package)&&$package->comunity_id==$item->community_id) || old('comunity_id')==$item->comunity_id) ? 'selected' : '' }}
+                                            id="namaKomunitas" >{{ $item->comunity_name }}</option>
                                         @endforeach
                                     </select>
                                     <div class="ml-2">
-                                        <button type="submit"
+                                        <a href="{{ route('admin-comunity.create') }}"
                                             class="text-center inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                             Tambah
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="block text-xs text-red-500">
@@ -130,13 +121,13 @@
                                         </svg>
                                     @endif
                                     
-                                    <div class="flex text-sm justify-center text-gray-600">
+                                    <div class="flex flex-col text-sm justify-center text-gray-600">
+                                        <span name="feature_img" class="mb-3 text-xs text-gray-500">{{(isset($package))?$package->feature_img:old('feature_img') }}</span>
                                         <label for="feature_img"
                                             class="@error('feature_img') border-red-500 @enderror relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
-                                            <span>Upload a file</span>
+                                            <p>Upload a file or drag and drop</p>
                                             <input id="feature_img" name="feature_img" type="file" class="sr-only">
                                         </label>
-                                        <p class="pl-1">or drag and drop</p>
                                     </div>
                                     <p class="text-xs text-gray-500">PNG or JPG up to 10MB</p>
                                     <div class="text-xs text-red-500">

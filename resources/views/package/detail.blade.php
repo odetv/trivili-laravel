@@ -5,11 +5,9 @@
                 <img alt="ecommerce" class="lg:w-1/3 w-full object-cover object-center rounded-lg border border-gray-200"
                     src="{{ asset('storage/' . $package['feature_img']) }}">
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                    <h1 class="text-gray-900 text-3xl title-font font-bold mb-1">{{ $package['package_name'] }}</h1>
-                    <div class="text-sm font-medium text-slate-400">Tersedia</div>
-                    <h2 class="text-sm text-slate-400">Comunity : {{ $package->comunity['comunity_name'] }}</h2>
-                    <h2 class="text-sm text-slate-400">Location : {{ $package['location_name'] }}</h2>
-                    <div class="flex mb-4">
+                    <h1 class="text-gray-900 text-3xl title-font font-semibold mb-1">{{ $package['package_name'] }}</h1>
+                    <a class="px-2 py-1 mt-4 mb-6 bg-green-500 rounded-lg text-xs font-medium text-white">Tersedia</a>
+                    <div class="flex mb-1">
                         <span class="flex items-center">
                             <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500"
@@ -72,16 +70,10 @@
                             </a>
                         </span>
                     </div>
-                    <p class="leading-relaxed">{!! $package['package_desc'] !!}</p>
+                    <h2 class="text-sm text-slate-400">Comunity : {{ $package->comunity['comunity_name'] }}</h2>
+                    <h2 class="text-sm text-slate-400">Location : {{ $package['location_name'] }}</h2>
+                    <p class="mt-4 leading-relaxed">{!! $package['package_desc'] !!}</p>
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                        {{-- <div class="flex">
-                            <span class="mr-3">Color</span>
-                            <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                            <button
-                                class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                            <button
-                                class="border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none"></button>
-                        </div> --}}
                         <div class="flex items-center">
                             <span class="mr-3">Kategori</span>
                             <div class="relative">
@@ -102,7 +94,8 @@
                         </div>
                     </div>
                     <div class="flex">
-                        <span class="title-font font-medium text-2xl text-gray-900">{{ $package->formatRupiah('package_price') }}</span>
+                        <span
+                            class="title-font font-medium text-2xl text-gray-900">{{ $package->formatRupiah('package_price') }}</span>
                     </div>
                     <div class="flex mt-5 text-sm font-medium">
                         <div class="flex-auto flex space-x-2 mr-4">

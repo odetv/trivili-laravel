@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PackageController extends Controller
 {
     public function package(){      
-        $packages = Packages::paginate(5);
+        $packages = Packages::latest()->paginate(5);
         $rates=Rates::all();
         $comunities=Comunity::all();
         return view('package.package', compact('packages','rates','comunities'));
@@ -29,10 +29,16 @@ class PackageController extends Controller
 
     public function checkout(){      
         $packages=Packages::all();
-        $rates=Rates::all();
+        $total = 0;
+        if (session('checkout')){
+            foreach (session('checkout') as $package_id => $details)
+            $total += $details['package_price'] * $details['quantity'];
+            $subtotal = $details['package_price'] * $details['quantity'];
+        }
+       
         // $checkout = session()->get('checkout', []);
         // dd($checkout);
-        return view('package.checkout', compact('packages','rates'));
+        return view('package.checkout', compact('packages', 'total', 'subtotal', 'details'));
     }
 
     public function addToCart($package_id){
